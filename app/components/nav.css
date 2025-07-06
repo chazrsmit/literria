@@ -1,42 +1,136 @@
-
     nav {
         display: flex;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 10px;
         width: 100%;
+        flex-wrap: wrap;
     }
+
 
     .div-titre, .div-log, .div-links {
         display: flex;
+    }
+
+    .div-titre {
         flex: 1;
-        align-items: center !important;
+    }
+
+    .div-log {
+ 
+        /* text-align: right; */
+
+    }
+
+    .div-links {
+
+        flex-direction: column;
         justify-content: center;
+        align-items: end;
+
+    }
+
+    .div-log p {
+        padding: 0;
+        margin: 0;
+        height: 60px;
+        font-size: 60px;
+        font-family: "Inter Tight";
+    }
+
+    .div-log p:hover{
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+    }
+
+    .div-log p:hover span {
+        font-style: italic;
+    }
+
+    .wrap {
+        flex: 1 1 auto;
+        justify-content: space-between;
+    }
+
+    @media (min-width: 990px) {
+       .wrap {
+        justify-content: end;
+       }
+    }
+
+    @media (min-width: 720px) {
+        .nav-links p {
+            font-size: 60px;
+        }
+            .div-log {
+  
+        /* text-align: right; */
+     }
+        .div-links {
+
+    }
+    }
+
+    .div-links p {
+        font-family: "Yatra One";
+        font-size: 60px;
+    }
+
+    .div-log p {
+        font-size: 60px;
+    }
+
+    .div-catalog, .div-titre {
+        height: 100px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-links p {
+        padding: 0;
+        margin: 0;
+        height: 60px;
+        font-family: "Inter Tight";
     }
 
     .titre {
         font-family: "Yatra One", system-ui;
-        font-size: 90px;
+        font-size: 110px;
         font-weight: 300;
         letter-spacing: 3px;
         position: relative;
         z-index: 1;
-
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 
-    .titre::after {
+    /* .titre::after {
         content: "Literria";
         font-family: "Yatra One", system-ui;
-        font-size: 90px;
+        font-size: 100px;
         font-weight: 300;
         letter-spacing: 3px;
-        color: #F8F32B;
+        color: black;
         position: absolute;
         left: 8px;
         z-index: -1;
         opacity: 0;
-    }
-
+    } */
+/* 
     .titre:hover::after {
         opacity: 1;
+    } */
+
+    .titre:hover span {
+        font-style: italic;
+    }
+
+    .login-icon {
+        width: 30px;
+        border: none;
+
     }
