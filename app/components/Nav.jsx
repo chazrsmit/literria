@@ -1,34 +1,43 @@
+'use client'
+
 import "./nav.css"
-import Image from 'next/image'
-import log from '../../public/assets/login-03.svg'
+import HoverWord from './HoverWord'
 
 export default function Nav() {
 
     return(
         <>
             <nav className="d-flex">
-                <div className="div-titre justify-content-end ">
-                    <h1 className="titre "><span>L</span>it<span>e</span>r<i>r</i>i<span>a</span></h1>
+                <div className="div-titre ">
+                    <h1 className="titre ">
+                        <HoverWord word="Literria" />
+                    </h1>
                 </div>
-                <div className="wrap d-flex gap-5 flex-wrap border">
-                    <div className="div-links border">
+                <div className="wrap gap-5 flex-wrap ">
+                    <div className="div-links ">
                         {/* <div className="div-catalog ">
                         </div> */}
                         <div className="nav-links ">
-                            <p className="">CATALOG</p>
-
-                            <p className="">FAVES[0]</p>
-
-                            <p className="">CART[0]</p>
+                            <p role="button">CATALOG</p>
+                            <p role="button">FAVES[0]</p>
+                            <p role="button">CART[0]</p>
                         </div>
                     </div>
-                    <div className="div-log d-flex flex-column align-items-end border">
+                    <div className="div-log d-flex flex-column align-items-end ">
                         {/* <div className="div-catalog">
                         </div> */}
                         <div className="">
-                            <p>SIGN <span>I</span>N</p>
+                            <HoverWord word="SIGN IN" />
+                            {/* <p>SIGN <span>I</span>N</p> */}
                         </div>
                     </div>
+                </div>
+                {/* Sur mobiles */}
+                <div className="wrap2 gap-5 justify-content-between w-100">
+                    <p>CATALOG</p>
+                    <p>FAVES[0]</p>
+                    <p>CART[0]</p>
+                    <p>SIGN IN</p>
                 </div>
             </nav>
         </>

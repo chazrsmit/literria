@@ -14,6 +14,7 @@
 
     .div-titre {
         flex: 1;
+        margin-bottom: 30px;
     }
 
     .div-log {
@@ -43,13 +44,34 @@
         text-underline-offset: 0.5rem;
     }
 
-    .div-log p:hover span {
+    /* .div-log p:hover span {
         font-style: italic;
-    }
+    } */
 
     .wrap {
         flex: 1 1 auto;
         justify-content: space-between;
+        display: none;
+    }
+
+    .wrap2 {
+        display: flex;
+    }
+
+    @media (min-width: 560px) {
+        .wrap {
+            display: flex;
+        }
+
+        .wrap2 {
+            display: none;
+        }
+
+        .titre {
+            font-size: 90px;
+        }
+
+        
     }
 
     @media (min-width: 990px) {
@@ -58,18 +80,6 @@
        }
     }
 
-    @media (min-width: 720px) {
-        .nav-links p {
-            font-size: 60px;
-        }
-            .div-log {
-  
-        /* text-align: right; */
-     }
-        .div-links {
-
-    }
-    }
 
     .div-links p {
         font-family: "Yatra One";
@@ -97,10 +107,11 @@
     }
 
     .titre {
-        font-family: "Yatra One", system-ui;
-        font-size: 110px;
+        font-family: "Yuji Boku";
+        text-transform: uppercase;
+        font-size: 80px;
         font-weight: 300;
-        letter-spacing: 3px;
+        letter-spacing: -1px;
         position: relative;
         z-index: 1;
         margin: 0;
@@ -125,12 +136,27 @@
         opacity: 1;
     } */
 
-    .titre:hover span {
+    /* .titre:hover span {
         font-style: italic;
-    }
+    } */
 
     .login-icon {
         width: 30px;
         border: none;
 
+    }
+
+    /* Logique d'italique random */
+
+    .nav-word {
+ 
+        height: auto;
+
+    }
+
+
+
+
+    .italic-letter {
+    font-style: italic;
     }
