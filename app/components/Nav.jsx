@@ -7,7 +7,7 @@ export default function Nav() {
 
     return(
         <>
-            <nav className="d-flex">
+            <nav className="d-flex gap-2">
                 <div className="div-titre ">
                     <h1 className="titre ">
                         <HoverWord word="Literria" />
@@ -34,10 +34,14 @@ export default function Nav() {
                 </div>
                 {/* Sur mobiles */}
                 <div className="wrap2 gap-5 justify-content-between w-100">
-                    <p>CATALOG</p>
+                    <HoverWord word="CATALOG" />
+                    <HoverWord word="CART[0]" />
+                    <HoverWord word="MY ACCOUNT" />
+                    <HoverWord word="SIGN IN" />
+                    {/* <p>CATALOG</p>
                     <p>CART[0]</p>
                     <p>MY ACCOUNT</p>
-                    <p>SIGN IN</p>
+                    <p>SIGN IN</p> */}
                 </div>
             </nav>
         </>

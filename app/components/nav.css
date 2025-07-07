@@ -13,7 +13,7 @@
     }
 
     .div-titre {
-        flex: 1;
+        /* flex: 1; */
         /* margin-bottom: 30px; */
     }
 
@@ -39,9 +39,13 @@
         font-family: "Inter Tight";
     }
 
-    .div-log p:hover, .div-links p:hover {
+    .div-log p:hover, .div-links p:hover, .wrap2 p:hover {
         text-decoration: underline;
         text-underline-offset: 0.3rem;
+    }
+
+    .wrap2 p:hover {
+        text-decoration-thickness: 2px;
     }
 
     /* .div-log p:hover span {
@@ -75,7 +79,7 @@
         
     }
 
-    @media (min-width: 990px) {
+    @media (min-width: 1120px) {
        .wrap {
         justify-content: end;
        }
