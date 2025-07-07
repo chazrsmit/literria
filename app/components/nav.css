@@ -14,7 +14,7 @@
 
     .div-titre {
         flex: 1;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
     }
 
     .div-log {
@@ -58,7 +58,12 @@
         display: flex;
     }
 
-    @media (min-width: 560px) {
+    .wrap2 p {
+        font-family: "Inter Tight";
+        font-size: clamp(12px, 2.5vw, 18px);
+    }
+
+    @media (min-width: 680px) {
         .wrap {
             display: flex;
         }

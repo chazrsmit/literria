@@ -19,8 +19,8 @@ export default function Nav() {
                         </div> */}
                         <div className="nav-links ">
                             <p role="button">CATALOG</p>
-                            <p role="button">FAVES[0]</p>
                             <p role="button">CART[0]</p>
+                            <p role="button">MY ACCOUNT</p>
                         </div>
                     </div>
                     <div className="div-log d-flex flex-column align-items-end ">
@@ -35,8 +35,8 @@ export default function Nav() {
                 {/* Sur mobiles */}
                 <div className="wrap2 gap-5 justify-content-between w-100">
                     <p>CATALOG</p>
-                    <p>FAVES[0]</p>
                     <p>CART[0]</p>
+                    <p>MY ACCOUNT</p>
                     <p>SIGN IN</p>
                 </div>
             </nav>
