@@ -8,7 +8,7 @@ import SearchBar from '@/app/components/SearchBar'
 export default function Catalog() {
 
     const [books, setBooks] = useState([])
-    const search = useSelector(state => state.search.query.toLowerCase())
+    const search = useSelector(state => state.search.query?.toLowerCase())
 
     useEffect(()=>
     {
@@ -20,9 +20,9 @@ export default function Catalog() {
     }, [])
 
     const filteredBooks = books.filter(book =>
-        book.title.toLowerCase().includes(search) ||
-        book.author.toLowerCase().includes(search) ||
-        book.publisher.toLowerCase().includes(search)
+        book.title?.toLowerCase().includes(search) ||
+        book.author?.toLowerCase().includes(search) ||
+        book.publisher?.toLowerCase().includes(search)
     )
 
     return(
@@ -36,9 +36,9 @@ export default function Catalog() {
                         <img src={book.image} alt={book.title} />
                         <h2>{book.title}</h2>
                         <p>{book.author}</p>
-                        <p>{book.year}, {book.publisher}</p>
                         <p>{book.description}</p>
                         <p>{book.category}</p>
+                        <p>{book.rating}</p>
                     </div>
                 ))}
             </div>

@@ -6,11 +6,10 @@ export async function getBooks() {
     return data.map(book => ({
         id: book.id,
         title: book.title,
-        author: book.author,
-        year: book.published,
-        publisher: book.publisher,
-        category: book.genre,
+        author: book.authors,
+        category: book.genres,
         image: book.image_url,
-        description: book.description
+        description: book.description,
+        rating: book.rating
     }))
 }
