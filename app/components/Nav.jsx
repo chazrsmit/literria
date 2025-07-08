@@ -11,7 +11,7 @@ export default function Nav() {
             <nav className="d-flex gap-3 ">
                 <div className="div-titre ">
                     <h1 className="titre ">
-                        <HoverWord word="Literria" />
+                        <Link href="/"><HoverWord word="Literria" animate={true} /></Link>
                     </h1>
                 </div>
                 <div className="wrap gap-5 flex-wrap ">

@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export default function HoverWord ({ word }) {
+export default function HoverWord ({ word, animate }) {
     const [italicIndex, setItalicIndex] = useState(null)
+    const [isAnimating, setIsAnimating] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
 
     const getLetterIndexes = (str) => {
         const letterIndexes = []
@@ -16,7 +18,46 @@ export default function HoverWord ({ word }) {
         return letterIndexes
     }
 
+    const animateRandomLetter = () => {
+        const letterIndexes = getLetterIndexes(word)
+        if (letterIndexes.length === 0) return
+
+        const random = Math.floor(Math.random()*letterIndexes.length)
+        setItalicIndex(letterIndexes[random])
+    }
+
+    // animation qui va commencer lorsque le component va mount (au chargement de la page):
+    useEffect(() => {
+        if (animate && !isHovered) {
+            setIsAnimating(true)
+            // on lance alors la fonction:
+            animateRandomLetter()
+            // on anime une lettre toutes les 0.3s:
+            const animationInterval = setInterval(()=>{
+                animateRandomLetter()
+            }, 300)
+            // et on arrête après 5s:
+            const animationTimeout = setTimeout(()=>{
+                setIsAnimating(false)
+                setItalicIndex(null)
+                clearInterval(animationInterval)
+            }, 5000)
+            // cleanup
+            return () => {
+                clearInterval(animationInterval)
+                clearTimeout(animationTimeout)
+            }
+        }
+    } , [animate, isHovered, word])
+
     const handleMouseEnter = () => {
+        // quand on hover sur le titre, l'animation stop:
+        setIsHovered(true)
+        if (isAnimating) {
+            setIsAnimating(false)
+        }
+
+        // hover effect
         const letterIndexes = getLetterIndexes(word)
         //  on check qu'il y a bien des lettres, sinon on quitte la fonction avec 'return' :
         if (letterIndexes.length === 0) return
@@ -25,6 +66,7 @@ export default function HoverWord ({ word }) {
     }
 
     const handleMouseLeave = () => {
+        setIsHovered(false)
         setItalicIndex(null)
     }
 

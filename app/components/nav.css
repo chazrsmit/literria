@@ -8,13 +8,14 @@
     }
 
 
+
     .div-titre, .div-log, .div-links {
         display: flex;
     }
 
-    .div-titre {
-        /* flex: 1; */
-        /* margin-bottom: 30px; */
+    .div-titre a {
+        text-decoration: none;
+        color: var(--primary-color)
     }
 
     .div-log {
@@ -43,7 +44,7 @@
         text-decoration: underline;
         text-underline-offset: 0.3rem;
         /* text-decoration-color:#FF595E; */
-        text-decoration-color:#CA3C25;
+        text-decoration-color:var(--accent-color);
     }
 
     /* .div-log p:hover{
@@ -52,7 +53,7 @@
 
     .wrap2 p:hover {
         text-decoration-thickness: 2px;
-        text-decoration-color:#CA3C25;
+        text-decoration-color:var(--accent-color);
     }
 
     /* .div-log p:hover span {
@@ -97,11 +98,10 @@
        }
     }
 
-
     .div-links p {
         font-family: "Yatra One";
         font-size: 60px;
-        color: #CDF7F6;
+        color: var(--primary-color);
     }
 
     .div-links a {
@@ -110,7 +110,7 @@
 
     .div-log p {
         font-size: 60px;
-        color: #CDF7F6;
+        color: var(--primary-color);
     }
 
 
@@ -141,7 +141,7 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        color: #CDF7F6;
+        color: var(--primary-color);
     }
 
     /* .titre::after {
@@ -179,5 +179,5 @@
 
     .italic-letter {
     font-style: italic;
-    color: #CA3C25;
+    color: var(--accent-color);
     }
