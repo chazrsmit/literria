@@ -2,12 +2,13 @@
 
 import "./nav.css"
 import HoverWord from './HoverWord'
+import Link from "next/link"
 
 export default function Nav() {
 
     return(
         <>
-            <nav className="d-flex gap-2">
+            <nav className="d-flex gap-3 ">
                 <div className="div-titre ">
                     <h1 className="titre ">
                         <HoverWord word="Literria" />
@@ -18,12 +19,12 @@ export default function Nav() {
                         {/* <div className="div-catalog ">
                         </div> */}
                         <div className="nav-links ">
-                            <p role="button">CATALOG</p>
+                            <Link href="/catalog"><p role="button">CATALOG</p></Link>
                             <p role="button">CART[0]</p>
                             <p role="button">MY ACCOUNT</p>
                         </div>
                     </div>
-                    <div className="div-log d-flex flex-column align-items-end ">
+                    <div className="div-log d-flex flex-column align-items-end">
                         {/* <div className="div-catalog">
                         </div> */}
                         <div className="">

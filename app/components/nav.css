@@ -42,10 +42,17 @@
     .div-log p:hover, .div-links p:hover, .wrap2 p:hover {
         text-decoration: underline;
         text-underline-offset: 0.3rem;
+        /* text-decoration-color:#FF595E; */
+        text-decoration-color:#CA3C25;
     }
+
+    /* .div-log p:hover{
+        color: #F3CA40;
+    } */
 
     .wrap2 p:hover {
         text-decoration-thickness: 2px;
+        text-decoration-color:#CA3C25;
     }
 
     /* .div-log p:hover span {
@@ -64,7 +71,12 @@
 
     .wrap2 p {
         font-family: "Inter Tight";
-        font-size: clamp(12px, 2.5vw, 18px);
+        font-size: clamp(12px, 2.8vw, 18px);
+        color: #CDF7F6;
+    }
+
+    .wrap2 p:nth-of-type(1) {
+        width: 70px;
     }
 
     @media (min-width: 680px) {
@@ -79,7 +91,7 @@
         
     }
 
-    @media (min-width: 1120px) {
+    @media (min-width: 1200px) {
        .wrap {
         justify-content: end;
        }
@@ -89,11 +101,18 @@
     .div-links p {
         font-family: "Yatra One";
         font-size: 60px;
+        color: #CDF7F6;
+    }
+
+    .div-links a {
+        text-decoration: none;
     }
 
     .div-log p {
         font-size: 60px;
+        color: #CDF7F6;
     }
+
 
     .div-catalog, .div-titre {
         height: 100px;
@@ -114,7 +133,7 @@
     .titre {
         font-family: "Yuji Boku";
         text-transform: uppercase;
-        font-size: clamp(48px, 15vw, 72px);
+        font-size: clamp(48px, 15vw, 80px);
         font-weight: 300;
         letter-spacing: -1px;
         position: relative;
@@ -122,6 +141,7 @@
         margin: 0;
         padding: 0;
         width: 100%;
+        color: #CDF7F6;
     }
 
     /* .titre::after {
@@ -154,14 +174,10 @@
     /* Logique d'italique random */
 
     .nav-word {
- 
         height: auto;
-
     }
-
-
-
 
     .italic-letter {
     font-style: italic;
+    color: #CA3C25;
     }
