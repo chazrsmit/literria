@@ -27,7 +27,7 @@ export default function Nav() {
                     <div className="div-log d-flex flex-column align-items-end">
                         {/* <div className="div-catalog">
                         </div> */}
-                        <div className="">
+                        <div className="sign-in">
                             <HoverWord word="SIGN IN" />
                             {/* <p>SIGN <span>I</span>N</p> */}
                         </div>

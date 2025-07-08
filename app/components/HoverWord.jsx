@@ -35,20 +35,20 @@ export default function HoverWord ({ word, animate }) {
             // on anime une lettre toutes les 0.3s:
             const animationInterval = setInterval(()=>{
                 animateRandomLetter()
-            }, 300)
+            }, 200)
             // et on arrête après 5s:
             const animationTimeout = setTimeout(()=>{
                 setIsAnimating(false)
                 setItalicIndex(null)
                 clearInterval(animationInterval)
-            }, 5000)
+            }, 3000)
             // cleanup
             return () => {
                 clearInterval(animationInterval)
                 clearTimeout(animationTimeout)
             }
         }
-    } , [animate, isHovered, word])
+    } , [])
 
     const handleMouseEnter = () => {
         // quand on hover sur le titre, l'animation stop:

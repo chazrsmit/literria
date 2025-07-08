@@ -19,7 +19,8 @@
     }
 
     .div-log {
- 
+        /* border: 1px solid red;   */
+        width: 210px;
         /* text-align: right; */
 
     }
@@ -169,6 +170,14 @@
         width: 30px;
         border: none;
 
+    }
+
+    /* sticky sign in - computers */
+
+    .sign-in {
+        position: fixed;
+        top: 9px;
+        z-index: 1000;
     }
 
     /* Logique d'italique random */
