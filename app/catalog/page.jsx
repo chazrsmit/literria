@@ -1,5 +1,6 @@
 'use client'
 
+import './catalog.css'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getBooks } from '@/app/lib/getBooks'
@@ -28,20 +29,27 @@ export default function Catalog() {
     return(
 
         <>
+
             <h1>Catalog</h1>
             <SearchBar/>
-            <div>
-                {filteredBooks.map(book => (
-                    <div key={book.id}>
-                        <img src={book.image} alt={book.title} />
-                        <h2>{book.title}</h2>
-                        <p>{book.author}</p>
-                        <p>{book.description}</p>
-                        <p>{book.category}</p>
-                        <p>{book.rating}</p>
-                    </div>
-                ))}
-            </div>
+
+                <div className="d-flex flex-wrap justify-content-between ">
+                    {filteredBooks.map(book => (
+                        <div key={book.id} className="book ">
+                            <div className="div-img">
+                                <div className="book-cover">
+                                    <img src={book.image} alt={book.title} />
+                                </div>
+                            </div>
+                            <h2 className="book-title mt-3">{book.title}</h2>
+                            <p className="book-author">{book.author}</p>
+                            <p className="book-description">{book.description}</p>
+                            <p>{book.category}</p>
+                            <p>{book.rating}</p>
+                        </div>
+                    ))}
+                </div>
+
         </>
     )
 }
