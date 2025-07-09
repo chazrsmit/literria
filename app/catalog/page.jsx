@@ -35,13 +35,13 @@ export default function Catalog() {
 
                 <div className="d-flex flex-wrap justify-content-between ">
                     {filteredBooks.map(book => (
-                        <div key={book.id} className="book ">
+                        <div key={book.id} className="book">
                             <div className="div-img">
-                            <div className="book-cover" style={{ backgroundImage: `url(${book.image})` }}>
-                                <div className="effect"></div>
-                                <div className="light"></div>
-                            </div>
-                            <div className="book-inside"></div>
+                                <div className="book-cover" style={{ backgroundImage: `url(${book.image})` }}>
+                                    <div className="effect"></div>
+                                    <div className="light"></div>
+                                </div>
+                                {/* <div className="book-inside"></div> */}
                             </div>
                             <h2 className="book-title mt-4">{book.title}</h2>
                             <p className="book-author">{book.author}</p>
