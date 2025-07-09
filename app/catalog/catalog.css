@@ -1,28 +1,21 @@
 .book {
     width: 340px;
-
 }
 
 .div-img {
     height: 420px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
-    
+    align-items: end;
+    /* border: 1px solid pink; */
 }
 
 .div-img img {
     object-fit: cover ;
     width: 250px;
     height: auto;
-    transform: rotateY(-5deg);
-    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2),
-                inset -3px 0px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 1px;
-    background: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* height: 400px; */
+    /* border: 70px solid var(--bg-color); */
 }
 
 .book-description {
@@ -46,22 +39,4 @@
     font-style: italic;
     font-size: 17px;
     font-weight: 300;
-}
-
-.div-img:hover img {
-    transform: rotateY(-8deg) scale(1.02);
-    box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.25),
-                inset -4px 0px 10px rgba(0, 0, 0, 0.25);
-}
-
-.div-img img::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 10px;
-    background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
-    border-radius: 4px 0 0 4px;
-    pointer-events: none;
 }
