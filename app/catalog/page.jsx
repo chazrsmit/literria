@@ -41,10 +41,12 @@ export default function Catalog() {
                     {filteredBooks.map(book => (
                         <div key={book.id} className="book my-4 mx-1">
                             <div className="div-img">
-                                <img 
-                                    src={book.image} 
-                                    alt={book.title}
+                                <div className="book-image-wrapper">
+                                    <img 
+                                        src={book.image} 
+                                        alt={book.title}
                                 />
+                                </div>
                             </div>
                             <h2 className="book-title mt-4">{book.title}</h2>
                             <p className="book-author">{book.author}</p>
