@@ -28,6 +28,8 @@ export default function Catalog() {
             book.publisher?.toLowerCase().includes(search))
         .sort((a,b) => a.title.localeCompare(b.title))
 
+
+
     return(
 
         <>
@@ -39,11 +41,10 @@ export default function Catalog() {
                     {filteredBooks.map(book => (
                         <div key={book.id} className="book my-4">
                             <div className="div-img">
-                                <div className="book-cover" style={{ backgroundImage: `url(${book.image})` }}>
-                                    <div className="effect"></div>
-                                    <div className="light"></div>
-                                </div>
-                                {/* <div className="book-inside"></div> */}
+                                <img 
+                                    src={book.image} 
+                                    alt={book.title}
+                                />
                             </div>
                             <h2 className="book-title mt-4">{book.title}</h2>
                             <p className="book-author">{book.author}</p>

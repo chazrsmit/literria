@@ -2,107 +2,62 @@
     width: 340px;
 }
 
-
 .div-img {
-    /* height: 420px;
+    height: 420px;
     display: flex;
     justify-content: center;
-    align-items: end; */
-    /* border: 1px solid pink; */
+    align-items: end; 
+    position: relative;
+    perspective: 1000px;
 }
 
-.div-img {
-  width: 250px;
-  height: 390px;
-  position: relative;
-
+.book-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.div-img:hover img {
+    transform: rotateY(-20deg) scale(1.05);
+    box-shadow: 
+        -15px 10px 40px rgba(0, 0, 0, 0.4),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.6);
 }
 
-.book-cover {
-  position: absolute;
-  /* left: 43px; */
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 2px;
-  transform-origin: 0 50%;
-  box-shadow:
-    inset 4px 1px 3px #ffffff60,
-    inset 0 -1px 2px #00000080;
-  transition: all 0.5s ease-in-out;
+.div-img:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: calc(100% + 20px);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
+    border-radius: 10px;
+    z-index: 0;
+    opacity: 0.5;
 }
-
-.book-cover .effect {
-  width: 20px;
-  height: 100%;
-  margin-left: 10px;
-  border-left: 2px solid #00000010;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
-  transition: all 0.5s ease;
-}
-
-.book-cover .light {
-  width: 90%;
-  height: 100%;
-  position: absolute;
-  border-radius: 3px;
-  background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%);
-  top: 0;
-  right: 0;
-  opacity: 0.1;
-  transition: all 0.1s ease-in;
-}
-
-.book-cover:hover {
-    scale: 0.97;
-}
-
-/* .book-inside {
-  width: calc(100% - 2px);
-  height: 96%;
-  position: relative;
-  top: 2%;
-  border: 1px solid grey;
-  border-radius: 3px;
-  background: white;
-  box-shadow:
-    10px 40px 40px -10px #00000030,
-    inset -2px 0 0 grey,
-    inset -3px 0 0 #dbdbdb,
-    inset -4px 0 0 white,
-    inset -5px 0 0 #dbdbdb,
-    inset -6px 0 0 white,
-    inset -7px 0 0 #dbdbdb,
-    inset -8px 0 0 white,
-    inset -9px 0 0 #dbdbdb;
-} */
-
-/* .book:hover .book-cover {
-  transform: perspective(2000px) rotateY(-30deg);
-  box-shadow:
-    inset 4px 1px 3px #ffffff60,
-    inset 0 -1px 2px #00000080,
-    10px 0px 10px -5px #00000030;
-} */
-
-/* .book:hover .book-cover .effect {
-  width: 40px;
-}
-
-.book:hover .book-cover .light {
-  opacity: 1;
-  width: 70%;
-} */
-
 
 .div-img img {
     object-fit: cover ;
     width: 250px;
     height: auto;
-    /* height: 400px; */
-    /* border: 70px solid var(--bg-color); */
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .book-description {
@@ -117,15 +72,14 @@
 .book-title, .book-author {
     color: var(--primary-color);
     font-family: "Inter";
-    font-size: 18px;
-    /* text-transform: uppercase; */
+    font-size: 17px;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
 .book-author {
     font-style: italic;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
 }
 
