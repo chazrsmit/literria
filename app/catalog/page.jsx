@@ -15,16 +15,18 @@ export default function Catalog() {
     {
         async function fetchBooks() {
             const data = await getBooks()
+            console.log(data)
             setBooks(data)
         }
         fetchBooks()
     }, [])
 
-    const filteredBooks = books.filter(book =>
-        book.title?.toLowerCase().includes(search) ||
-        book.author?.toLowerCase().includes(search) ||
-        book.publisher?.toLowerCase().includes(search)
-    )
+    const filteredBooks = books
+        .filter(book =>
+            book.title?.toLowerCase().includes(search) ||
+            book.author?.toLowerCase().includes(search) ||
+            book.publisher?.toLowerCase().includes(search))
+        .sort((a,b) => a.title.localeCompare(b.title))
 
     return(
 
@@ -33,9 +35,9 @@ export default function Catalog() {
             <h1>Catalog</h1>
             <SearchBar/>
 
-                <div className="d-flex flex-wrap justify-content-between ">
+                <div className="d-flex flex-wrap justify-content-between gap-2">
                     {filteredBooks.map(book => (
-                        <div key={book.id} className="book">
+                        <div key={book.id} className="book my-4">
                             <div className="div-img">
                                 <div className="book-cover" style={{ backgroundImage: `url(${book.image})` }}>
                                     <div className="effect"></div>
@@ -46,8 +48,12 @@ export default function Catalog() {
                             <h2 className="book-title mt-4">{book.title}</h2>
                             <p className="book-author">{book.author}</p>
                             <p className="book-description">{book.description}</p>
-                            <p>{book.category}</p>
-                            <p>{book.rating}</p>
+                            <div className='d-flex gap-2'>
+                                <button>{book.categoryA}</button>
+                                <button>{book.categoryB}</button>
+                                <button>{book.categoryC}</button>
+                            </div>
+                            {/* <p>{book.rating}</p> */}
                         </div>
                     ))}
                 </div>
