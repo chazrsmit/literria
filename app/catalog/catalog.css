@@ -14,7 +14,7 @@
 .book-rangee {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 30px;
   padding: 0 10px;
 }
 
@@ -46,7 +46,7 @@
     perspective: 1000px;
 }
 
-.book-effects {
+/* .book-effects {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,10 +54,7 @@
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-}
-
-
-
+} */
 
 /* 
 .div-img:hover::before {
@@ -111,7 +108,12 @@
         inset 0 -1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* SPINE EFFECT */
+.book-image-wrapper img:hover {
+    box-shadow: 0 10px 30px rgb(67, 67, 67),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .book-image-wrapper::before {
     content: '';
     position: absolute;

@@ -34,7 +34,7 @@ export default function Catalog() {
 
         <>
 
-            <h1>Catalog</h1>
+            {/* <h1>Catalog</h1> */}
             <SearchBar/>
 
                 <div className="book-rangee">
