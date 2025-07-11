@@ -81,7 +81,7 @@
         width: 70px;
     }
 
-    @media (min-width: 680px) {
+    @media (min-width: 720px) {
         .wrap {
             display: flex;
         }
@@ -173,12 +173,12 @@
     }
 
     /* sticky sign in - computers */
-
+/* 
     .sign-in {
         position: fixed;
         top: 9px;
         z-index: 1000;
-    }
+    } */
 
     /* Logique d'italique random */
 

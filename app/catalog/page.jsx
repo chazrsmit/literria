@@ -37,9 +37,9 @@ export default function Catalog() {
             <h1>Catalog</h1>
             <SearchBar/>
 
-                <div className="d-flex flex-wrap justify-content-start gap-3">
+                <div className="book-rangee">
                     {filteredBooks.map(book => (
-                        <div key={book.id} className="book my-4 mx-1">
+                        <div key={book.id} className="book">
                             <div className="div-img">
                                 <div className="book-image-wrapper">
                                     <img 

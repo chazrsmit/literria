@@ -1,5 +1,40 @@
 .book {
-    width: 340px;
+    /* width: 70vw; */
+    /* flex: 1 auto; */
+    width: 100%;
+    max-width: 100%;
+}
+
+/* @media (min-width: 760px) {
+  .book {
+    width: 22vw;
+  }
+} */
+
+.book-rangee {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+@media (min-width:768px) {
+  .book-rangee {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-rangee {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .book-rangee {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .div-img {

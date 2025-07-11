@@ -24,7 +24,7 @@ export default function Nav() {
                             <p role="button">MY ACCOUNT</p>
                         </div>
                     </div>
-                    <div className="div-log d-flex flex-column align-items-end">
+                    <div className="div-log d-flex flex-column align-items-end ">
                         {/* <div className="div-catalog">
                         </div> */}
                         <div className="sign-in">
