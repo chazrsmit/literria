@@ -3,12 +3,27 @@
 import "./nav.css"
 import HoverWord from './HoverWord'
 import Link from "next/link"
+import SearchBar from '@/app/components/SearchBar'
+import { useEffect, useState } from "react"
+
 
 export default function Nav() {
 
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 0)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return() => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return(
         <>
-            <nav className="d-flex gap-3 ">
+            <nav className={`d-flex gap-3 ${scrolled ? 'scrolled' : ''}`}>
                 <div className="div-titre ">
                     <h1 className="titre ">
                         <Link href="/"><HoverWord word="Literria" animate={true} /></Link>
@@ -27,8 +42,11 @@ export default function Nav() {
                     <div className="div-log d-flex flex-column align-items-end ">
                         {/* <div className="div-catalog">
                         </div> */}
-                        <div className="sign-in">
+                        <div className="sign-in d-flex flex-column gap-3 ">
                             <HoverWord word="SIGN IN" />
+                            <div className="">
+                                <SearchBar/>
+                            </div>
                             {/* <p>SIGN <span>I</span>N</p> */}
                         </div>
                     </div>

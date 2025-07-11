@@ -53,7 +53,7 @@ export default function Catalog() {
         <>
 
             {/* <h1>Catalog</h1> */}
-            <SearchBar/>
+            {/* <SearchBar/> */}
 
                 <div className="book-rangee">
                     {displayedBooks.map(book => (

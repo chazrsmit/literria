@@ -5,6 +5,14 @@
         padding-top: 10px; */
         width: 100%;
         flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+         mix-blend-mode:difference;
     }
 
 
@@ -171,6 +179,12 @@
         border: none;
 
     }
+
+    /* .sign-in {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    } */
 
     /* sticky sign in - computers */
 /* 
