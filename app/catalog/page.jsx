@@ -54,7 +54,7 @@ export default function Catalog() {
 
             {/* <h1>Catalog</h1> */}
             {/* <SearchBar/> */}
-
+        <div className="page-catalog">
                 <div className="book-rangee">
                     {displayedBooks.map(book => (
                         <div key={book.id} className="book">
@@ -90,7 +90,7 @@ export default function Catalog() {
                         </button>
                     </div>
                 )}
-
+        </div>
         </>
     )
 }

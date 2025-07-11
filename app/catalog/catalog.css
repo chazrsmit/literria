@@ -1,9 +1,17 @@
+.page-catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .book {
     /* width: 70vw; */
     /* flex: 1 auto; */
     width: 100%;
     max-width: 100%;
+    
 }
+
 
 /* @media (min-width: 760px) {
   .book {
@@ -94,6 +102,7 @@
     position: relative;
     width: 250px;
     height: auto;
+
 }
 
 .book-image-wrapper img {
@@ -101,12 +110,13 @@
     height: auto;
     display: block;
     border-radius: 2px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease-in;
     z-index: 1;
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.3),
         inset 4px 1px 3px rgba(255, 255, 255, 0.4),
         inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    
 }
 
 .book-image-wrapper img:hover {
@@ -161,7 +171,7 @@
     font-weight: 300;
 }
 
-/* Boutons */
+/* Boutons catégories */
 
 .book button {
   border: 1px var(--primary-color) dotted;
@@ -171,4 +181,31 @@
   font-family: "Inter";
   text-transform: uppercase;
   font-size: 11px;
+  transition: all 0.2s ease-in;
+}
+
+.book button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Bouton view more */
+
+.view-more-container {
+  margin-top: 40px;
+}
+
+.view-more-btn {
+  background-color: transparent;
+  border-radius: 5px;
+  font-family: "Inter";
+  text-transform: uppercase;
+  border: 1px var(--primary-color) dotted;
+  color: var(--primary-color);
+  height: 40px;
+  width: 180px;
+  transition: all 0.2s ease-in;
+}
+
+.view-more-btn:hover {
+    color: var(--accent-color);
 }
