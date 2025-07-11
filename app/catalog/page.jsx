@@ -2,14 +2,18 @@
 
 import './catalog.css'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
+import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
 
 export default function Catalog() {
 
     const [books, setBooks] = useState([])
+    const dispatch = useDispatch()
     const search = useSelector(state => state.search.query?.toLowerCase())
+    const { displayCount, itemsPerPage } = useSelector(state => state.pagination)
+
 
     useEffect(()=>
     {
@@ -28,7 +32,21 @@ export default function Catalog() {
             book.publisher?.toLowerCase().includes(search))
         .sort((a,b) => a.title.localeCompare(b.title))
 
+    // on va display uniquement les livres qui correspondent au compte actuel
+    const displayedBooks = filteredBooks.slice(0, displayCount)
 
+    // on check s'il reste encore des livres dans l'API à afficher
+    const hasMoreBooks = displayCount < filteredBooks.length
+    
+    // la fonction pour charger plus de livres
+    const handleLoadMore = () => {
+        dispatch(loadMore())
+    }
+
+    // quand la rehcerche change, il faut reset le count à 0
+    useEffect(() => {
+        dispatch(resetPagination())
+    }, [search, dispatch])
 
     return(
 
@@ -38,7 +56,7 @@ export default function Catalog() {
             <SearchBar/>
 
                 <div className="book-rangee">
-                    {filteredBooks.map(book => (
+                    {displayedBooks.map(book => (
                         <div key={book.id} className="book">
                             <div className="div-img">
                                 <div className="book-image-wrapper">
@@ -60,6 +78,18 @@ export default function Catalog() {
                         </div>
                     ))}
                 </div>
+
+                {/* view more */}
+                {hasMoreBooks && (
+                    <div className="view-more-container">
+                        <button
+                            className="view-more-btn"
+                            onClick={handleLoadMore}
+                        >
+                            View more ({filteredBooks.length-displayCount})
+                        </button>
+                    </div>
+                )}
 
         </>
     )
