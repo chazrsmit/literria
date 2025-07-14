@@ -33,7 +33,7 @@
 
     .div-log {
         /* border: 1px solid red;   */
-        width: 210px;
+        width: 271px;
         /* text-align: right; */
 
     }
@@ -185,6 +185,7 @@
 
     }
 
+
     /* .sign-in {
         display: flex;
         flex-direction: column;
@@ -208,4 +209,9 @@
     .italic-letter {
     font-style: italic;
     color: var(--accent-color);
+    }
+
+
+    .sign-in a {
+        text-decoration: none;
     }

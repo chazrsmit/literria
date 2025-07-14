@@ -1,6 +1,6 @@
 'use client'
 
-import { deleteBook } from "@/store/slices/panierSlice";
+import { deleteBook, selectQuantity } from "@/store/slices/panierSlice";
 import './cart.css'
 import { useDispatch, useSelector } from "react-redux";
 
@@ -29,33 +29,45 @@ export default function Cart() {
     const total = cartItems.reduce((total, currentValue) => total = total + currentValue.price
     , 0)
 
+    // total quantité:
+    const qtTotale = useSelector(selectQuantity)
+
     return(
 
         <>
-        <div>
-            {itemGroup.map(item =>
-                <div key={item.id} className="d-flex gap-3">
-                    <p>{item.title}</p>
-                    <p>{item.quantity}</p>
-                    <p>{item.price*item.quantity}</p>
-                    <button onClick={() => dispatch(deleteBook(item.id))}>Delete book</button>
-                </div>
-            )}
-        </div>
 
-        {
-            cartItems.length > 0 &&
-        <>
-        {/* Total */}
-        <div>
-            <p>{total}</p>
-        </div>
-        {/* vers le paiement */}
-        <div>
-            <button>Commander</button>
-        </div>
-        </>
-        }
+            <div>
+                {itemGroup.map(item =>
+                    <div key={item.id} className="d-flex gap-3">
+                        <p>{item.title}</p>
+                        <p>{item.quantity}</p>
+                        <p>{item.price*item.quantity}</p>
+                        <button onClick={() => dispatch(deleteBook(item.id))}>Delete book</button>
+                    </div>
+                )}
+            </div>
+
+            {
+                cartItems.length > 0 &&
+            <>
+            {/* Total */}
+            <div>
+                <p>{qtTotale}</p>
+                <p>{total}</p>
+            </div>
+            {/* vers le paiement */}
+            <div>
+                <button>Commander</button>
+            </div>
+            </>
+            }
+
+            {cartItems.length === 0 &&
+            <div>
+                <p>Your cart is empty.</p>
+            </div>
+            }
+
         </>
 
     )

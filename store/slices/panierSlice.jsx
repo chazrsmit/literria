@@ -13,5 +13,9 @@ const panierSlice = createSlice({
     }
 })
 
+// calcul de la qunatité totale du panier à utiliser dans la nav et dans le cart
+export const selectQuantity = (state) => state.panier.length
+
+
 export default panierSlice.reducer
 export const { addBook, deleteBook } = panierSlice.actions

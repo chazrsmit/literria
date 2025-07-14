@@ -6,16 +6,21 @@
   import "bootstrap/dist/css/bootstrap.min.css";
   import { Provider } from 'react-redux'
   import { store } from '@/store'
+  import { SessionProvider } from 'next-auth/react'
+
+
 
   export default function RootLayout({ children }) {
     return (
       <html lang="en">
         <body>
+          <SessionProvider>
           <Provider store={store}>
             <Nav />
             <main>{children}</main>
             <Footer />
           </Provider>
+          </SessionProvider>
         </body>
       </html>
     );
