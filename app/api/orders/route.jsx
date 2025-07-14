@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
-import { createOrder, getUserOrders } from '@/lib/orders'
+import { createOrder, getUserOrders } from '@/app/lib/orders'
 import { authOptions } from '../auth/[...nextauth]/route'
 
 // GET - Retrieve user's orders

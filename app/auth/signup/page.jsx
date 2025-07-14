@@ -63,23 +63,23 @@ export default function SignUp() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8">
+    <div>
+      <div>
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Créer un compte
+          <h2>
+            Create an account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            <div>
               {error}
             </div>
           )}
           
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Nom complet
+            <label htmlFor="name">
+              Username
             </label>
             <input
               id="name"
@@ -88,12 +88,11 @@ export default function SignUp() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email">
               Email
             </label>
             <input
@@ -103,13 +102,12 @@ export default function SignUp() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Mot de passe
+            <label htmlFor="password">
+              Password
             </label>
             <input
               id="password"
@@ -118,13 +116,12 @@ export default function SignUp() {
               required
               value={formData.password}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirmer le mot de passe
+            <label htmlFor="confirmPassword">
+              Confirm password
             </label>
             <input
               id="confirmPassword"
@@ -133,7 +130,6 @@ export default function SignUp() {
               required
               value={formData.confirmPassword}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
@@ -145,11 +141,11 @@ export default function SignUp() {
             </button>
           </div>
 
-          <div className="text-center">
-            <p className="text-sm text-gray-600">
-              Vous avez déjà un compte ?{' '}
-              <Link href="/auth/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Se connecter
+          <div>
+            <p>
+              Already have an account?{' '}
+              <Link href="/auth">
+                Log in
               </Link>
             </p>
           </div>

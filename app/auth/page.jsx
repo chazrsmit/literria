@@ -89,17 +89,19 @@ export default function AuthPage() {
                         <div>
                             <button
                             type="submit"
-
                             >
                             Sign in
                             </button>
                         </div>
-                        {/* Google sign in */}
-                        <button onClick={()=>signIn('google')}>Sign in with Google</button>
                     </div>
-                    {/* Sign up page */}
-                    <Link href="/auth/signup"><button>Sign up</button></Link>
+
                     </form>
+                                            {/* Google sign in */}
+                        <div>
+                            <button onClick={()=>signIn('google')}>Sign in with Google</button>
+                        </div>
+                                            {/* Sign up page */}
+                    <Link href="/auth/signup"><button>Sign up</button></Link>
                 </div>
 
                 </>

@@ -1,10 +1,10 @@
 'use client'
 
-import { deleteBook, selectQuantity } from "@/store/slices/panierSlice";
+import { clearCart, deleteBook, selectQuantity } from "@/store/slices/panierSlice";
 import './cart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Cart() {
 
@@ -57,11 +57,7 @@ export default function Cart() {
 
             if (response.ok) {
                 const data = await response.json()
-                
-                // vider le cart après la commande
-                cartItems.forEach(item => {
-                    dispatch(deleteBook(item.id))
-                })
+            
                 
                 router.push('/orders')
             }
