@@ -7,6 +7,8 @@ import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
 import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
 import Link from 'next/link'
+import { addBook } from '@/store/slices/panierSlice'
+
 
 export default function Catalog() {
 
@@ -76,8 +78,9 @@ export default function Catalog() {
                                 <button>{book.categoryC}</button>
                             </div>
                             {/* Prix */}
-                            <div>
+                            <div className="d-flex">
                                 <p>{book.price}</p>
+                                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
                             </div>
                             {/* Bouton vers la page détails */}
                             <Link href={`/details/${book.id}`}>

@@ -57,6 +57,7 @@ export default function Details({params}) {
                     <h2 className="title my-2">{book.title}</h2>
                     <h3 className="author">{book.author}</h3>
                     <p className="description">{book.description}</p>
+                    <p>{book.price}</p>
                     <button onClick={()=>dispatch(addBook(book))}>Add to cart</button>
                 </div>
             </div>

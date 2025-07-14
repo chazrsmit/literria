@@ -34,13 +34,28 @@ export default function Cart() {
         <>
         <div>
             {itemGroup.map(item =>
-                <div key={item.id}>
+                <div key={item.id} className="d-flex gap-3">
                     <p>{item.title}</p>
                     <p>{item.quantity}</p>
+                    <p>{item.price*item.quantity}</p>
                     <button onClick={() => dispatch(deleteBook(item.id))}>Delete book</button>
                 </div>
             )}
         </div>
+
+        {
+            cartItems.length > 0 &&
+        <>
+        {/* Total */}
+        <div>
+            <p>{total}</p>
+        </div>
+        {/* vers le paiement */}
+        <div>
+            <button>Commander</button>
+        </div>
+        </>
+        }
         </>
 
     )
