@@ -3,10 +3,15 @@
 import { deleteBook, selectQuantity } from "@/store/slices/panierSlice";
 import './cart.css'
 import { useDispatch, useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Cart() {
 
     const dispatch = useDispatch()
+    const router = useRouter()
+
+    const { data: session } = useSession()
 
     const cartItems = useSelector(state => state.panier)
 
@@ -32,7 +37,40 @@ export default function Cart() {
     // total quantité:
     const qtTotale = useSelector(selectQuantity)
 
-    return(
+    // si pas de session, s'enregistrer
+    const handleCheckout = async() => {
+        if (!session) {
+            router.push('/auth')
+            return
+        }
+        try {
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cartItems: cartItems,
+                    total: total
+                })
+            })
+
+            if (response.ok) {
+                const data = await response.json()
+                
+                // vider le cart après la commande
+                cartItems.forEach(item => {
+                    dispatch(deleteBook(item.id))
+                })
+                
+                router.push('/orders')
+            }
+            } catch (error) {
+            console.error("Checkout error:", error)
+            }
+            }
+
+    return (
 
         <>
 
@@ -57,7 +95,8 @@ export default function Cart() {
             </div>
             {/* vers le paiement */}
             <div>
-                <button>Commander</button>
+                <button
+                onClick={handleCheckout}>Commander</button>
             </div>
             </>
             }
