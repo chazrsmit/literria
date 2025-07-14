@@ -23,7 +23,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 60px;
   /* padding: 0 10px; */
 }
 
@@ -120,9 +120,10 @@
 }
 
 .book-image-wrapper img:hover {
-    box-shadow: 0 10px 30px rgb(67, 67, 67),
-        inset 4px 1px 3px rgba(255, 255, 255, 0.4),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.7),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .book-image-wrapper::before {
@@ -197,15 +198,17 @@
 .view-more-btn {
   background-color: transparent;
   border-radius: 5px;
-  font-family: "Inter";
+  font-family: "Inter Tight";
   text-transform: uppercase;
-  border: 1px var(--primary-color) dotted;
-  color: var(--primary-color);
+  border: none;
+  color: var(--accent-color);
   height: 40px;
-  width: 180px;
+  /* width: 200px; */
   transition: all 0.2s ease-in;
+  font-size: 14px;
 }
 
-.view-more-btn:hover {
-    color: var(--accent-color);
-}
+/* .view-more-btn:hover {
+    background-color: var(--dark-green);
+    border: 1px solid var(--dark-green);
+} */

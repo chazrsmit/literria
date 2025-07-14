@@ -8,12 +8,17 @@
         position: sticky;
         top: 0;
         z-index: 1000;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease-in;
     }
+/* 
+    @media (min-width:1024px) {
+           nav.scrolled {
+        mix-blend-mode: exclusion;
 
-    nav.scrolled {
-        mix-blend-mode:difference;
-    }
+
+    } 
+    } */
+
 
 
 

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
 import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
+import Link from 'next/link'
 
 export default function Catalog() {
 
@@ -74,6 +75,10 @@ export default function Catalog() {
                                 <button>{book.categoryB}</button>
                                 <button>{book.categoryC}</button>
                             </div>
+                            {/* Bouton vers la page détails */}
+                            <Link href={`/details/${book.id}`}>
+                                <button>View more</button>
+                            </Link>
                             {/* <p>{book.rating}</p> */}
                         </div>
                     ))}
@@ -86,7 +91,7 @@ export default function Catalog() {
                             className="view-more-btn"
                             onClick={handleLoadMore}
                         >
-                            View more ({filteredBooks.length-displayCount})
+                            + ({filteredBooks.length-displayCount})
                         </button>
                     </div>
                 )}

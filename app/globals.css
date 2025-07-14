@@ -8,6 +8,10 @@
   --bg-color: #8d9fa4; 
   --primary-color: #CDF7F6;
   --accent-color: #CA3C25;
+  --dark-green: #405852;
+  /* --bg-color:#B68CB8;
+  --primary-color: black;
+  --accent-color: #EFCA08; */
 }
 
 body, html {

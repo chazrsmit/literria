@@ -35,7 +35,7 @@ export default function Nav() {
                         </div> */}
                         <div className="nav-links ">
                             <Link href="/catalog"><p role="button">CATALOG</p></Link>
-                            <p role="button">CART[0]</p>
+                            <Link href="/cart"><p role="button">CART[0]</p></Link>
                             <p role="button">MY ACCOUNT</p>
                         </div>
                     </div>

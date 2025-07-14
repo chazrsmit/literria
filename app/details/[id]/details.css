@@ -1,0 +1,101 @@
+.book-details {
+    width: 61vw;
+}
+
+.book-infos {
+    width: 58%;
+}
+
+/* image */
+.div-img2 img {
+    object-fit: cover ;
+    width: 350px;
+    height: auto;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.book-image-wrapper2 {
+    position: relative;
+    width: 350px;
+    height: auto;
+
+}
+
+.book-image-wrapper2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    transition: all 0.3s ease-in;
+    z-index: 1;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 4px 1px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    
+}
+
+.book-image-wrapper2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.25),
+        rgba(255, 255, 255, 0.05),
+        transparent 70%
+    );
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    /* box-shadow: 
+        2px 0 4px rgba(0, 0, 0, 0.25), 
+        inset -1px 0 2px rgba(255, 255, 255, 0.06); */
+    pointer-events: none;
+    z-index: 2;
+} 
+
+/* Boutons catégories */
+
+.book-infos button {
+  border: 1px var(--primary-color) dotted;
+  background-color: transparent;
+  color: var(--accent-color);
+  border-radius: 5px;
+  font-family: "Inter";
+  text-transform: uppercase;
+  font-size: 11px;
+  transition: all 0.2s ease-in;
+}
+
+.book-infos button:hover {
+  background-color: var(--primary-color);
+}
+
+/* textes */
+
+.book-infos .author, .book-infos .title {
+    color: var(--primary-color);
+}
+
+.book-infos p {
+    font-family: 'Inter';
+}
+
+.book-infos h3, .book-infos h2 {
+    font-family: 'Inter Tight';
+}
+
+.book-infos .description {
+    line-height: 1.7;
+}
