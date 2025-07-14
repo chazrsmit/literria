@@ -75,6 +75,10 @@ export default function Catalog() {
                                 <button>{book.categoryB}</button>
                                 <button>{book.categoryC}</button>
                             </div>
+                            {/* Prix */}
+                            <div>
+                                <p>{book.price}</p>
+                            </div>
                             {/* Bouton vers la page détails */}
                             <Link href={`/details/${book.id}`}>
                                 <button>View more</button>

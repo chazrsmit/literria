@@ -25,6 +25,10 @@ export default function Cart() {
     }, [])
     //  empty array => la valeur initiale du reduce : un empty array qu'on va ensuite accumuler. il faut faire en sorte que ce soit un array vide car on va utiliser la méthode FIND dessus => il faut un array d'objets et pas un objet, s'il n'y avait pas cette précision par défaut react prendrait le premier item de cartItem (un objet).
 
+    // total du panier :
+    const total = cartItems.reduce((total, currentValue) => total = total + currentValue.price
+    , 0)
+
     return(
 
         <>
