@@ -1,4 +1,4 @@
-/* Import your existing catalog.css styles */
+
 @import '../../catalog/catalog.css';
 
 .category-header {
@@ -38,7 +38,7 @@
     color: #6c757d;
 }
 
-/* Make category buttons look clickable */
+
 .d-flex button {
     cursor: pointer;
     transition: all 0.3s ease;
