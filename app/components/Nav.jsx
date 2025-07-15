@@ -56,9 +56,9 @@ export default function Nav() {
                             :
                             <Link href="/auth"><p role="button">SIGN IN</p></Link>
                             }
-                            <div className="">
+                            {/* <div className="">
                                 <SearchBar/>
-                            </div>
+                            </div> */}
                             {/* <p>SIGN <span>I</span>N</p> */}
                         </div>
                     </div>

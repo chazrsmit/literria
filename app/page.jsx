@@ -1,22 +1,20 @@
 'use client'
 
-import './catalog.css'
+import './homepage.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
-import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
 
 export default function Home() {
-
     const [books, setBooks] = useState([])
+    const [currentSlide, setCurrentSlide] = useState(0)
     const dispatch = useDispatch()
     const search = useSelector(state => state.search.query?.toLowerCase())
 
-    useEffect(()=>
-    {
+    useEffect(() => {
         async function fetchBooks() {
             const data = await getBooks()
             console.log(data)
@@ -25,17 +23,174 @@ export default function Home() {
         fetchBooks()
     }, [])
 
+    // Function to get random books
+    const getRandomBooks = (booksArray, count) => {
+        // Step 1: Create a copy to avoid modifying original array
+        const booksCopy = [...booksArray]
+        
+        // Step 2: Shuffle the copy using Fisher-Yates algorithm (more reliable)
+        for (let i = booksCopy.length - 1; i > 0; i--) {
+            const randomIndex = Math.floor(Math.random() * (i + 1))
+            // Swap elements
+            const temp = booksCopy[i]
+            booksCopy[i] = booksCopy[randomIndex]
+            booksCopy[randomIndex] = temp
+        }
+        
+        // Step 3: Return only the first 'count' books
+        return booksCopy.slice(0, count)
+    }
 
-  return (
-    <>
+    // Function to get books by category
+    const getBooksByCategory = (category, count) => {
+        const categoryBooks = books.filter(book => 
+            book.categoryA?.toLowerCase().includes(category.toLowerCase()) ||
+            book.categoryB?.toLowerCase().includes(category.toLowerCase()) ||
+            book.categoryC?.toLowerCase().includes(category.toLowerCase())
+        )
+        return getRandomBooks(categoryBooks, count)
+    }
 
-        {/* Sélection de 4 livres (aléatoire) en caroussel - livres du moment */}
+    // Get different book selections
+    const randomBooks = getRandomBooks(books, 4)
+    const poetryBooks = getBooksByCategory('poetry', 4)
+    const sciFiBooks = getBooksByCategory('science fiction', 4)
 
+    // Carousel functionality
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % randomBooks.length)
+    }
 
-        {/* Sélection de 4 livres (catégorie A, B ou C includes "poetry") + un bouton view more qui va nous amener sur la page catalog avec le filtre category "poetry"*/}
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + randomBooks.length) % randomBooks.length)
+    }
 
-        {/* idem pour 4 livres de la catégorie "science fiction" */}
+    // Auto-advance carousel
+    useEffect(() => {
+      if (randomBooks.length > 0) {
+        const interval = setInterval(nextSlide, 5000) // Change slide every 5 seconds
+        return () => clearInterval(interval)
+      }
+    }, [randomBooks.length])
 
-    </>
-  )
+    // Component to render a book card
+    const BookCard = ({ book }) => (
+        <div className="book">
+            <div className="div-img">
+                <div className="book-image-wrapper">
+                    <img 
+                        src={book.image} 
+                        alt={book.title}
+                    />
+                </div>
+            </div>
+            <h2 className="book-title mt-4">{book.title}</h2>
+            <p className="book-author">{book.author}</p>
+            <p className="book-description">{book.description}</p>
+            <div className='d-flex gap-2'>
+                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                    <button>{book.categoryA}</button>
+                </Link>
+                {book.categoryB && (
+                    <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                        <button>{book.categoryB}</button>
+                    </Link>
+                )}
+                {book.categoryC && (
+                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                        <button>{book.categoryC}</button>
+                    </Link>
+                )}
+            </div>
+            <div className="d-flex">
+                <p>{book.price}</p>
+                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
+            </div>
+            <Link href={`/details/${book.id}`}>
+                <button>View more</button>
+            </Link>
+        </div>
+    )
+
+    return (
+        <>
+            {/* Carousel - Books of the moment */}
+            <section className="carousel-section">
+                <h2 className="section-title">Books of the Moment</h2>
+                <div className="carousel-container">
+                    <div className="carousel-wrapper">
+                        <div 
+                            className="carousel-track"
+                            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                        >
+                            {randomBooks.map((book, index) => (
+                                <div key={`carousel-${book.id}`} className="carousel-slide">
+                                    <BookCard book={book} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {/* Carousel controls */}
+                    <button className="carousel-btn carousel-btn-prev" onClick={prevSlide}>
+                        ←
+                    </button>
+                    <button className="carousel-btn carousel-btn-next" onClick={nextSlide}>
+                        →
+                    </button>
+                    
+                    {/* Carousel indicators */}
+                    <div className="carousel-indicators">
+                        {randomBooks.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                                onClick={() => setCurrentSlide(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Poetry Books Section */}
+            <section className="books-section">
+                <div className="section-header">
+                    <h2 className="section-title">Poetry Collection</h2>
+                    <Link href="/category/poetry">
+                        <button className="view-more-section-btn">View More Poetry →</button>
+                    </Link>
+                </div>
+                <div className="book-rangee">
+                    {poetryBooks.map(book => (
+                        <BookCard key={`poetry-${book.id}`} book={book} />
+                    ))}
+                </div>
+                {poetryBooks.length === 0 && (
+                    <div className="no-books">
+                        <p>No poetry books available at the moment.</p>
+                    </div>
+                )}
+            </section>
+
+            {/* Science Fiction Books Section */}
+            <section className="books-section">
+                <div className="section-header">
+                    <h2 className="section-title">Science Fiction</h2>
+                    <Link href="/category/science fiction">
+                        <button className="view-more-section-btn">View More Sci-Fi →</button>
+                    </Link>
+                </div>
+                <div className="book-rangee">
+                    {sciFiBooks.map(book => (
+                        <BookCard key={`scifi-${book.id}`} book={book} />
+                    ))}
+                </div>
+                {sciFiBooks.length === 0 && (
+                    <div className="no-books">
+                        <p>No science fiction books available at the moment.</p>
+                    </div>
+                )}
+            </section>
+        </>
+    )
 }
