@@ -1,0 +1,50 @@
+/* Import your existing catalog.css styles */
+@import '../../catalog/catalog.css';
+
+.category-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.category-header h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.category-header p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.back-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #6c757d;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.no-books {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+/* Make category buttons look clickable */
+.d-flex button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.d-flex button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,66 +1,87 @@
+// page où vont être filtrées les différentes catégories 
+// presque copie conforme de catalog.jsx
+
 'use client'
 
-import './catalog.css'
+import './category.css' // You'll need to create this CSS file
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'next/navigation'
 import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
-import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
+import { loadMore, resetPagination } from '@/store/slices/paginationSlice'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
 
-
-export default function Catalog() {
-
+export default function CategoryPage() {
     const [books, setBooks] = useState([])
     const dispatch = useDispatch()
+    const params = useParams()
+    const categorySlug = params.slug
     const search = useSelector(state => state.search.query?.toLowerCase())
     const { displayCount, itemsPerPage } = useSelector(state => state.pagination)
 
+    // Decode the category name from URL
+    const categoryName = decodeURIComponent(categorySlug)
 
-    useEffect(()=>
-    {
+    useEffect(() => {
         async function fetchBooks() {
             const data = await getBooks()
-            console.log(data)
             setBooks(data)
         }
         fetchBooks()
     }, [])
 
+    // Filter books by category and search
     const filteredBooks = books
-        .filter(book =>
-            book.title?.toLowerCase().includes(search) ||
-            book.author?.toLowerCase().includes(search) ||
-            book.categoryA?.toLowerCase().includes(search) ||
-            book.categoryB?.toLowerCase().includes(search) ||
-            book.categoryC?.toLowerCase().includes(search)
-        )
-        .sort((a,b) => a.title.localeCompare(b.title))
+        .filter(book => {
+            // Check if book belongs to the selected category
+            const belongsToCategory = 
+                book.categoryA?.toLowerCase() === categoryName.toLowerCase() ||
+                book.categoryB?.toLowerCase() === categoryName.toLowerCase() ||
+                book.categoryC?.toLowerCase() === categoryName.toLowerCase()
+            
+            // If there's a search query, also filter by search
+            const matchesSearch = !search || 
+                book.title?.toLowerCase().includes(search) ||
+                book.author?.toLowerCase().includes(search) ||
+                book.categoryA?.toLowerCase().includes(search) ||
+                book.categoryB?.toLowerCase().includes(search) ||
+                book.categoryC?.toLowerCase().includes(search)
+            
+            return belongsToCategory && matchesSearch
+        })
+        .sort((a, b) => a.title.localeCompare(b.title))
 
-    // on va display uniquement les livres qui correspondent au compte actuel
+    // Display only the books that correspond to current count
     const displayedBooks = filteredBooks.slice(0, displayCount)
 
-    // on check s'il reste encore des livres dans l'API à afficher
+    // Check if there are more books to display
     const hasMoreBooks = displayCount < filteredBooks.length
     
-    // la fonction pour charger plus de livres
+    // Function to load more books
     const handleLoadMore = () => {
         dispatch(loadMore())
     }
 
-    // quand la rehcerche change, il faut reset le count à 0
+    // Reset pagination when search changes
     useEffect(() => {
         dispatch(resetPagination())
-    }, [search, dispatch])
+    }, [search, dispatch, categoryName])
 
-    return(
-
+    return (
         <>
+            <div className="page-catalog">
+                <div className="category-header">
+                    <h1>Books in category: {categoryName}</h1>
+                    <p>{filteredBooks.length} books found</p>
+                    <Link href="/catalog">
+                        <button className="back-btn">← Back to All Books</button>
+                    </Link>
+                </div>
 
-            {/* <h1>Catalog</h1> */}
-            {/* <SearchBar/> */}
-        <div className="page-catalog">
+                <SearchBar />
+
                 <div className="book-rangee">
                     {displayedBooks.map(book => (
                         <div key={book.id} className="book">
@@ -69,7 +90,7 @@ export default function Catalog() {
                                     <img 
                                         src={book.image} 
                                         alt={book.title}
-                                />
+                                    />
                                 </div>
                             </div>
                             <h2 className="book-title mt-4">{book.title}</h2>
@@ -79,41 +100,48 @@ export default function Catalog() {
                                 <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
                                     <button>{book.categoryA}</button>
                                 </Link>
-                                <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
-                                    <button>{book.categoryB}</button>
-                                </Link>
+                                {book.categoryB && (
+                                    <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                                        <button>{book.categoryB}</button>
+                                    </Link>
+                                )}
                                 {book.categoryC && (
                                     <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
                                         <button>{book.categoryC}</button>
                                     </Link>
                                 )}
                             </div>
-                            {/* Prix */}
+                            {/* Price */}
                             <div className="d-flex">
                                 <p>{book.price}</p>
                                 <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
                             </div>
-                            {/* Bouton vers la page détails */}
+                            {/* Button to details page */}
                             <Link href={`/details/${book.id}`}>
                                 <button>View more</button>
                             </Link>
-                            {/* <p>{book.rating}</p> */}
                         </div>
                     ))}
                 </div>
 
-                {/* view more */}
+                {/* Load more */}
                 {hasMoreBooks && (
                     <div className="view-more-container">
                         <button
                             className="view-more-btn"
                             onClick={handleLoadMore}
                         >
-                            + ({filteredBooks.length-displayCount})
+                            + ({filteredBooks.length - displayCount})
                         </button>
                     </div>
                 )}
-        </div>
+
+                {filteredBooks.length === 0 && (
+                    <div className="no-books">
+                        <p>No books found in this category.</p>
+                    </div>
+                )}
+            </div>
         </>
     )
 }

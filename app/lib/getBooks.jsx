@@ -4,11 +4,11 @@ export async function getBooks() {
 
     // on va assigner des prix randoms aux livres:
     const prices = [
-        9.99,
+        5.99,
         11.99,
-        13.99,
-        15.99,
-        17.99
+        16.99,
+        21.99,
+        29.99
     ]
 
     // fonction pour choper un des prix au hasard
@@ -22,10 +22,10 @@ export async function getBooks() {
         id: book.id,
         title: book.title,
         author: book.authors,
-        // je ne vais prendre que les 3 premières catégories/genre:
-        categoryA: book.genres ? book.genres.split(',').slice(0, 1).map(genre => genre.trim()) : [],
-        categoryB: book.genres ? book.genres.split(',').slice(1, 2).map(genre => genre.trim()) : [],
-        categoryC: book.genres ? book.genres.split(',').slice(2, 3).map(genre => genre.trim()) : [],
+        // je ne vais prendre que les 3 premières catégories/genres:
+        categoryA: book.genres ? book.genres.split(',')[0]?.trim() ?? '' : '',
+        categoryB: book.genres ? book.genres.split(',')[1]?.trim() ?? '' : '',
+        categoryC: book.genres ? book.genres.split(',')[2]?.trim() ?? '' : '',
         image: book.image_url,
         description: book.description,
         rating: book.rating,
