@@ -10,18 +10,16 @@
         z-index: 1000;
         transition: all 0.2s ease-in;
         margin-bottom: 60px;
+
         
     }
-/* 
-    @media (min-width:1024px) {
-           nav.scrolled {
+
+
+    /* @media (min-width:1024px) {
+        nav.scrolled {
         mix-blend-mode: exclusion;
-
-
     } 
     } */
-
-
 
 
     .div-titre, .div-log, .div-links {

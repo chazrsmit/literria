@@ -80,6 +80,30 @@ export default function Home() {
         }
     }, [randomBooks.length])
 
+
+    // Component to render a book card in the carousel
+    const BookCardCarousel = ({ book }) => (
+        <div className="book2">
+
+            <div className="div-img2">
+
+                    <div className="book-image-wrapper2">
+                        <img 
+                            src={book.image} 
+                            alt={book.title}
+                        />
+                    </div>
+
+            </div>
+            <h2 className="book-title mt-4">{book.title}</h2>
+            <p className="book-author">{book.author}</p>
+            <p className="book-description">{book.description}</p>
+            <Link href={`/details/${book.id}`}>
+                <button className="btn-view-more">View more</button>
+            </Link>
+        </div>
+    )
+
     // Component to render a book card
     const BookCard = ({ book }) => (
         <div className="book">
@@ -121,10 +145,10 @@ export default function Home() {
 
     return (
         <>
+
             {/* Carousel - Books of the moment */}
             <section className="carousel-section">
-                <h2 className="section-title">Books of the month</h2>
-                <div className="carousel-container">
+                <div className="carousel-container ">
                     <div className="carousel-wrapper">
                         <div 
                             className="carousel-track"
@@ -132,7 +156,7 @@ export default function Home() {
                         >
                             {randomBooks.map((book) => (
                                 <div key={`carousel-${book.id}`} className="carousel-slide">
-                                    <BookCard book={book} />
+                                    <BookCardCarousel book={book} />
                                 </div>
                             ))}
                         </div>
@@ -147,7 +171,7 @@ export default function Home() {
                     </button>
                     
                     {/* Carousel indicators */}
-                    <div className="carousel-indicators">
+                    {/* <div className="carousel-indicators">
                         {randomBooks.map((_, index) => (
                             <button
                                 key={index}
@@ -155,12 +179,15 @@ export default function Home() {
                                 onClick={() => setCurrentSlide(index)}
                             />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
+
             {/* Poetry Books Section */}
+ 
             <section className="books-section">
+
                 <div className="section-header ">
                     <h2 className="section-title">Our Poetry selection</h2>
                     <Link href="/category/poetry">
@@ -198,6 +225,8 @@ export default function Home() {
                     </div>
                 )}
             </section>
+
+
         </>
     )
 }

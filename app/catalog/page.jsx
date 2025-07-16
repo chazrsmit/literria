@@ -100,7 +100,7 @@ export default function Catalog() {
                             </div>
                             {/* Bouton vers la page détails */}
                             <Link href={`/details/${book.id}`}>
-                                <button className="btn-view-more">View more</button>
+                                <button className="btn-view-more">view more</button>
                             </Link>
                             {/* <p>{book.rating}</p> */}
                         </div>

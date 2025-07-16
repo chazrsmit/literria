@@ -5,13 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  --bg-color: #8d9fa4; 
-  --primary-color: #CDF7F6;
-  --accent-color: #CA3C25;
-  --dark-green: #405852;
-  /* --bg-color:#B68CB8;
-  --primary-color: black;
-  --accent-color: #EFCA08; */
+  /* --bg-color: #8d9fa4;  
+ --primary-color: #CDF7F6; 
+ --accent-color: #CA3C25; */
+ /* --bg-color:#fefedf; */
+ --bg-color:#fcf8ff;
+ --primary-color: #845ec2;
+ /* --accent-color:#00c9a7; */
+ --accent-color: #b0a8b9;
+ --dark-grey: #4b4453;
+ --light-grey: #b0a8b9;
 }
 
 body, html {
