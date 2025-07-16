@@ -16,8 +16,10 @@
         <body>
           <SessionProvider>
           <Provider store={store}>
+            <div className="site-wrap">
             <Nav />
             <main>{children}</main>
+            </div>
             <Footer />
           </Provider>
           </SessionProvider>

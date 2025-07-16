@@ -186,7 +186,10 @@ box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
 
 .book button:hover {
   background-color: var(--primary-color);
+      transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Bouton view more */
 

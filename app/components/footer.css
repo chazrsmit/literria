@@ -1,0 +1,29 @@
+footer {
+    color: var(--primary-color);
+}
+
+footer p, footer a {
+    font-size: 0.8rem;
+    font-weight: 200;
+    font-family: "Inter Tight";
+}
+
+.footer-wrap {
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 0px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: right;
+}
+
+.footer-links {
+    justify-content: center;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
