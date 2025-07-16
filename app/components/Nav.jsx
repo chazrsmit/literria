@@ -52,9 +52,9 @@ export default function Nav() {
                         <div className="sign-in d-flex flex-column gap-3 ">
                             {/* <Link href="/auth"><p role="button">SIGN IN</p></Link> */}
                             { session ?
-                            <p role="button" onClick={()=>signOut()}>SIGN OUT</p>
+                            <p role="button" onClick={()=>signOut()}>LOG OUT</p>
                             :
-                            <Link href="/auth"><p role="button">SIGN IN</p></Link>
+                            <Link href="/auth"><p role="button">LOG IN</p></Link>
                             }
                             {/* <div className="">
                                 <SearchBar/>
@@ -68,7 +68,7 @@ export default function Nav() {
                     <HoverWord word="CATALOG" />
                     <HoverWord word="CART[0]" />
                     <HoverWord word="MY ORDERS" />
-                    <HoverWord word="SIGN IN" />
+                    <HoverWord word="LOG IN" />
                     {/* <p>CATALOG</p>
                     <p>CART[0]</p>
                     <p>MY ACCOUNT</p>

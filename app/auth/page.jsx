@@ -3,6 +3,7 @@
 import { getSession, signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
+import './auth.css'
 
 export default function AuthPage() {
 
@@ -53,14 +54,15 @@ export default function AuthPage() {
             )
             : (
                 <>
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column  align-items-center">
+                  <div className="auth ">
                 {/* Sign in */}
                     <form onSubmit={handleSubmit}>
                     {/* Email */}
                     <div>
-                        <label htmlFor="email">
+                        {/* <label htmlFor="email">
                         Email
-                        </label>
+                        </label> */}
                         <input
                         id="email"
                         name="email"
@@ -68,13 +70,14 @@ export default function AuthPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
+                        placeholder='Email'
                         />
                     </div>
                     {/* Password */}
                     <div>
-                        <label htmlFor="password">
+                        {/* <label htmlFor="password">
                         Mot de passe
-                        </label>
+                        </label> */}
                         <input
                         id="password"
                         name="password"
@@ -82,28 +85,37 @@ export default function AuthPage() {
                         required
                         value={formData.password}
                         onChange={handleChange}
+                        placeholder='Password'
                         />
                     </div>
+                    
                     {/* Sign in buttons */}
                     <div className="d-flex">
-                        <div>
+                        
                             <button
                             type="submit"
+                            className="sign-in-btn mt-2"
                             >
-                            Sign in
+                            Log in
                             </button>
-                        </div>
+                        
                     </div>
+                  </form>
 
-                    </form>
-                                            {/* Google sign in */}
-                        <div>
-                            <button onClick={()=>signIn('google')}>Sign in with Google</button>
-                        </div>
-                                            {/* Sign up page */}
-                    <Link href="/auth/signup"><button>Sign up</button></Link>
+                  {/* Google sign in */}
+                      <div>
+                          <button
+                          onClick={()=>signIn('google')}
+                          className="sign-in-btn my-2"
+                          >Log in with Google</button>
+                      </div>
+
+                    {/* Sign up  */}
+                    <div>
+                      <p>No account yet? <Link href="/auth/signup">Sign up</Link> now.</p>
+                    </div>
                 </div>
-
+</div>
                 </>
             )}
         </div>

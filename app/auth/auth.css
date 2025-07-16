@@ -1,0 +1,24 @@
+.auth p {
+    font-family: "Inter";
+    font-size: 0.9rem;
+    color: var(--primary-color)
+}
+
+
+
+.auth a {
+    color: var(--primary-color)
+}
+
+.sign-in-btn {
+    background: transparent;
+    border: 1px var(--primary-color) dotted;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.sign-in-btn:hover {
+            border-radius: 5px;
+        text-transform: lowercase;
+}
