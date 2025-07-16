@@ -69,40 +69,96 @@ export default function Cart() {
     return (
 
         <>
-
-            <div>
-                {itemGroup.map(item =>
-                    <div key={item.id} className="d-flex gap-3">
-                        <p>{item.title}</p>
-                        <p>{item.quantity}</p>
-                        <p>{item.price*item.quantity}</p>
-                        <button onClick={() => dispatch(deleteBook(item.id))}>Delete book</button>
+        <div className="page-cart ">
+            <div className="cart">
+                <div className="cart-grid cart-header">
+                    <div className=""></div>
+                    <div className="">
+                        <p>Product</p>
                     </div>
-                )}
-            </div>
+                    <div className="">
+                        <p>Quantity</p>
+                    </div>
+                    <div className="">
+                        <p>Price</p>
+                    </div>
+                    <div className="">
+                        <p>Subtotal</p>
+                    </div>
+                    <div className="">
 
-            {
-                cartItems.length > 0 &&
-            <>
-            {/* Total */}
-            <div>
-                <p>{qtTotale}</p>
-                <p>{total}</p>
-            </div>
-            {/* vers le paiement */}
-            <div>
-                <button
-                onClick={handleCheckout}>Commander</button>
-            </div>
-            </>
-            }
+                    </div>
+                </div>
+                {/* Mapping des éléments mis dans le cart */}
+                <div>
+                    {itemGroup.map(item =>
+                        <div key={item.id} className="cart-grid cart-product">
+                            <div className=" ">
+                                <img className="img-cart" src={item.image} alt="" />
+                            </div>
+                            <div className="">
+                                <p>{item.title}</p>
+                            </div>
+                            <div className="">
+                                <p>{item.quantity}</p>
+                            </div>
+                            <div className="">
+                              <p>{item.price*item.quantity}</p>
+                            </div>
+                            <div className="">
+                                <button onClick={() => dispatch(deleteBook(item.id))}>X</button>
+                            </div>
+                        </div>
+                    )}
+                </div>
 
-            {cartItems.length === 0 &&
-            <div>
-                <p>Your cart is empty.</p>
-            </div>
-            }
+                {
+                    cartItems.length > 0 &&
+                <>
 
+                      <div className="cart-footer">
+                        <div className="cart-totals">
+                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                                <p className="p-0 m-0">Total quantity</p>
+                                <p className="p-0 m-0">{qtTotale}</p>
+                            </div>
+                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                                <p className="p-0 m-0">Total to pay</p>
+                                <p className="p-0 m-0">{total.toFixed(2)}</p>
+                            </div>
+                        </div> 
+                        <input className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
+                        <button onClick={handleCheckout}>Commander</button>
+                    </div>
+
+                {/* <div>
+                    <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                        <p className="p-0 m-0">Total quantity</p>
+                        <p className="p-0 m-0">{qtTotale}</p>
+                    </div>
+                    <div>
+                        <input type="text" className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
+                    </div>
+                    <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                        <p>Total</p>
+                        <p>{total}</p>
+                    </div>
+                </div>
+
+                <div>
+                    <button
+                    onClick={handleCheckout}>Commander</button>
+                </div> */}
+                </>
+                }
+
+                {cartItems.length === 0 &&
+                <div>
+                    <p>Your cart is empty.</p>
+                </div>
+                }
+            </div>
+        </div>
         </>
 
     )

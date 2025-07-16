@@ -12,8 +12,11 @@
     width: 100%;
     max-width: 100%;
     margin-top: 10px;
+    padding: 1.5rem;
+
     
 }
+
 
 
 /* @media (min-width: 760px) {
@@ -115,17 +118,17 @@
     border-radius: 2px;
     transition: all 0.3s ease-in;
     z-index: 1;
--webkit-box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
--moz-box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
-box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
+    box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
     
 }
 
 .book-image-wrapper img:hover {
-    /* box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.6),
-        inset 4px 1px 3px rgba(255, 255, 255, 0.7),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.8); */
+    -webkit-box-shadow: -10px 10px 24px -4px rgba(66, 68, 90, 0.5);
+    -moz-box-shadow: -10px 10px 24px -4px rgba(66, 68, 90, 0.5);
+    box-shadow: -10px 10px 24px -4px rgba(66, 68, 90, 0.5);
+
 }
 
 .book-image-wrapper::before {
@@ -162,17 +165,19 @@ box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
 .book-title, .book-author {
     color: var(--primary-color);
     font-family: "Inter";
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    margin:0;
+    padding:0;
 }
 
 .book-author {
     font-style: italic;
-    font-size: 16px;
+    /* font-size: 18px; */
     font-weight: 300;
-    padding: 0;
-    margin: 0;
+    text-transform: none;
 }
 
 /* Boutons catégories */

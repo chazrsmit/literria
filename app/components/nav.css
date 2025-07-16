@@ -87,7 +87,7 @@
     .wrap2 p {
         font-family: "Inter Tight";
         font-size: clamp(12px, 2.8vw, 18px);
-        color: #CDF7F6;
+        color: var(--primary-color);
     }
 
     .wrap2 p:nth-of-type(1) {
