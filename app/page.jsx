@@ -140,10 +140,10 @@ export default function Home() {
                     
                     {/* Carousel controls */}
                     <button className="carousel-btn carousel-btn-prev" onClick={prevSlide}>
-                        ←
+                        ❬
                     </button>
                     <button className="carousel-btn carousel-btn-next" onClick={nextSlide}>
-                        →
+                        ❭
                     </button>
                     
                     {/* Carousel indicators */}

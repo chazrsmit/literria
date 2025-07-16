@@ -43,7 +43,7 @@ export default function Nav() {
                         <div className="nav-links">
                             <Link href="/catalog"><p role="button">CATALOG</p></Link>
                             <Link href="/cart"><p role="button">CART[{qtTotale}]</p></Link>
-                            <Link href="/account"><p role="button">MY ACCOUNT</p></Link>
+                            <Link href="/account"><p role="button">MY ORDERS</p></Link>
                         </div>
                     </div>
                     <div className="div-log d-flex flex-column align-items-end ">
@@ -67,7 +67,7 @@ export default function Nav() {
                 <div className="wrap2 gap-5 justify-content-between w-100">
                     <HoverWord word="CATALOG" />
                     <HoverWord word="CART[0]" />
-                    <HoverWord word="MY ACCOUNT" />
+                    <HoverWord word="MY ORDERS" />
                     <HoverWord word="SIGN IN" />
                     {/* <p>CATALOG</p>
                     <p>CART[0]</p>
