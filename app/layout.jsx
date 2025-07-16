@@ -13,14 +13,19 @@
   export default function RootLayout({ children }) {
     return (
       <html lang="en">
+
         <body>
           <SessionProvider>
           <Provider store={store}>
-            <div className="site-wrap">
-            <Nav />
-            <main>{children}</main>
+            <div className="d-flex flex-column big-wrap">
+              <div className="site-wrap ">
+                <Nav />
+                <main>{children}</main>
+              </div>
+              <div className="">
+                <Footer />
+              </div>
             </div>
-            <Footer />
           </Provider>
           </SessionProvider>
         </body>

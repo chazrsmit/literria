@@ -2,6 +2,10 @@ footer {
     color: var(--primary-color);
 }
 
+footer .column {
+    flex: 1;
+}
+
 footer p, footer a {
     font-size: 0.8rem;
     font-weight: 200;

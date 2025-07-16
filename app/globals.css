@@ -18,18 +18,24 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: 0;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 body {
   background-color: var(--bg-color) !important;
-  padding-top: 10px;
-
-}
+  padding-top: 10px;}
 
 .site-wrap {
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 70px;
+}
+
+.big-wrap {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
