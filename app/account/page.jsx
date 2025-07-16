@@ -57,7 +57,7 @@ const [error, setError] = useState('')
   if (loading) {
     return (
       <div>
-        <div>Chargement...</div>
+        <div></div>
       </div>
     )
   }

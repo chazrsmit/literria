@@ -45,7 +45,7 @@ export default function AuthPage() {
 
     return(
         <>
-        <div>
+        <div className="page-auth">
             {session ? (
             <>
                 <p>Connecté en tant que {session.user?.name}</p>
@@ -55,7 +55,7 @@ export default function AuthPage() {
             : (
                 <>
                 <div className="d-flex flex-column  align-items-center">
-                  <div className="auth ">
+                  <div className="auth">
                 {/* Sign in */}
                     <form onSubmit={handleSubmit}>
                     {/* Email */}
@@ -106,7 +106,7 @@ export default function AuthPage() {
                       <div>
                           <button
                           onClick={()=>signIn('google')}
-                          className="sign-in-btn my-2"
+                          className="sign-in-btn mt-2 mb-3"
                           >Log in with Google</button>
                       </div>
 
@@ -115,7 +115,7 @@ export default function AuthPage() {
                       <p>No account yet? <Link href="/auth/signup">Sign up</Link> now.</p>
                     </div>
                 </div>
-</div>
+    </div>
                 </>
             )}
         </div>

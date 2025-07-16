@@ -17,10 +17,10 @@
         <body>
           <SessionProvider>
           <Provider store={store}>
-            <div className="d-flex flex-column big-wrap">
+            <div className="d-flex flex-column big-wrap ">
               <div className="site-wrap ">
                 <Nav />
-                <main>{children}</main>
+                  <main>{children}</main>
               </div>
               <div className="">
                 <Footer />
