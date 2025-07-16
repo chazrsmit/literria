@@ -56,8 +56,8 @@ const [error, setError] = useState('')
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center">Chargement...</div>
+      <div>
+        <div>Chargement...</div>
       </div>
     )
   }
@@ -65,13 +65,13 @@ const [error, setError] = useState('')
 
     return(
         <>
-            <div>
-                {session? 
-                <>
-                    <h2>Welcome {session.user?.name}</h2>
+        <div>
+          {session? 
+          <>
+          <h2>Welcome {session.user?.name}</h2>
 
 
-                            <div className="space-y-6">
+          <div>
           {orders.map((order) => (
             <div key={order.id} >
               <div>
@@ -79,35 +79,34 @@ const [error, setError] = useState('')
                   <h2 >Commande #{order.orderNumber}</h2>
                   <p >Passée le {formatDate(order.createdAt)}</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-lg font-bold">{formatPrice(order.totalAmount)}</p>
-                  <p className="text-sm text-gray-600">{order.totalQuantity} livre(s)</p>
-                  <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mt-1">
+                <div>
+                  <p>{formatPrice(order.totalAmount)}</p>
+                  <p>{order.totalQuantity} livre(s)</p>
+                  <span>
                     {order.status}
                   </span>
                 </div>
               </div>
 
-              <div className="border-t pt-4">
-                <h3 className="font-semibold mb-2">Articles commandés :</h3>
-                <div className="space-y-2">
+              <div>
+                <h3>Articles commandés :</h3>
+                <div>
                   {order.items.map((item) => (
-                    <div key={item.id} className="flex justify-between items-center">
-                      <div className="flex items-center space-x-3">
-                        {item.image && (
+                    <div key={item.id}>
+                      <div>
+                        {/* {item.image && (
                           <img 
                             src={item.image} 
                             alt={item.title} 
-                            className="w-12 h-16 object-cover rounded"
                           />
-                        )}
+                        )} */}
                         <div>
-                          <p className="font-medium">{item.title}</p>
-                          <p className="text-sm text-gray-600">par {item.author}</p>
-                          <p className="text-sm text-gray-600">Quantité: {item.quantity}</p>
+                          <p>{item.title}</p>
+                          <p>par {item.author}</p>
+                          <p>Quantité: {item.quantity}</p>
                         </div>
                       </div>
-                      <p className="font-medium">{formatPrice(item.price * item.quantity)}</p>
+                      <p>{formatPrice(item.price * item.quantity)}</p>
                     </div>
                   ))}
                 </div>

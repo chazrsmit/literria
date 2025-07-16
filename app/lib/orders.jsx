@@ -114,4 +114,3 @@ export const updateOrderStatus = (orderId, newStatus) => {
   
   return null
 }
-

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearCart } from '@/store/slices/panierSlice'
+import { useSession } from 'next-auth/react'
 
 export default function Confirmation() {
     const dispatch = useDispatch()
@@ -13,35 +14,49 @@ export default function Confirmation() {
     const [groupedItems, setGroupedItems] = useState([])
 
    useEffect(() => {
-    // Group items before clearing cart
-    const grouped = cartItems.reduce((acc, item) => {
-        const existing = acc.find((i) => i.id === item.id)
-        if (existing) {
-            existing.quantity += 1
-        } else {
-            acc.push({ ...item, quantity: 1 })
-        }
-        return acc
-    }, [])
+  const grouped = cartItems.reduce((acc, item) => {
+    const existing = acc.find((i) => i.id === item.id)
+    if (existing) {
+      existing.quantity += 1
+    } else {
+      acc.push({ ...item, quantity: 1 })
+    }
+    return acc
+  }, [])
 
-    setGroupedItems(grouped)
+  setGroupedItems(grouped)
 
-    // Calculate delivery date
-    const date = new Date()
-    date.setDate(date.getDate() + 2)
-    setDeliveryDate(date.toDateString())
+  const total = grouped.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
-    // Clear the cart AFTER local copy is made
-    dispatch(clearCart())
+  const finalizeOrder = async () => {
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cartItems: grouped,
+          total,
+        }),
+      })
 
-    // 👇 Empty dependency array ensures this runs ONCE
-    }, [])
+      if (!res.ok) {
+        console.error('Failed to save order')
+      }
+    } catch (err) {
+      console.error('Error finalizing order:', err)
+    }
+  }
+
+  finalizeOrder()
+  dispatch(clearCart())
+}, [])
+
 
     const fullAddress = `${delivery.address}, ${delivery.city}, ${delivery.country}`
     const fullName = delivery.fullName
 
     return (
-        <div className="max-w-xl mx-auto mt-10 space-y-4">
+        <div>
             <h2>Payment Successful</h2>
 
             <p>Thank you {fullName} !</p>

@@ -10,68 +10,68 @@ export async function GET() {
     
     if (!session) {
       return NextResponse.json(
-        { error: 'Non autorisé' },
+        { error: 'Unauthorized' },
         { status: 401 }
       )
     }
-    
+
     const userId = session.user.id || session.user.email
     const userEmail = session.user.email
-    
+
     const orders = getUserOrders(userId, userEmail)
-    
-    // Sort orders by creation date (newest first)
+
     const sortedOrders = orders.sort((a, b) => 
       new Date(b.createdAt) - new Date(a.createdAt)
     )
-    
+
     return NextResponse.json(sortedOrders)
     
   } catch (error) {
     console.error('Error fetching orders:', error)
     return NextResponse.json(
-      { error: 'Erreur interne du serveur' },
+      { error: 'Internal error' },
       { status: 500 }
     )
   }
 }
 
-// POST - Create new order
+// POST - Create new order (only after payment is successful)
 export async function POST(request) {
   try {
     const session = await getServerSession(authOptions)
-    
+
     if (!session) {
       return NextResponse.json(
-        { error: 'Non autorisé' },
+        { error: 'Unauthorized' },
         { status: 401 }
       )
     }
-    
+
     const { cartItems, total } = await request.json()
-    
-    if (!cartItems || cartItems.length === 0) {
+
+    if (!cartItems || cartItems.length === 0 || !total) {
       return NextResponse.json(
-        { error: 'Le panier est vide' },
+        { error: 'Invalid request data' },
         { status: 400 }
       )
     }
-    
+
     const userId = session.user.id || session.user.email
     const userEmail = session.user.email
     const userName = session.user.name
-    
+
+    // 👇 Order is created ONLY after fake payment has been "processed"
     const order = await createOrder(userId, userEmail, userName, cartItems, total)
-    
+
     return NextResponse.json(
-      { message: 'Commande créée avec succès', order },
+      { message: 'Order completed', order },
       { status: 201 }
     )
-    
+
   } catch (error) {
     console.error('Error creating order:', error)
     return NextResponse.json(
-      { error: 'Erreur lors de la création de la commande' },
+      { error: 'Error creating order' },
       { status: 500 }
     )
   }

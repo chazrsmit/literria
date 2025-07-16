@@ -11,6 +11,9 @@ import { addBook } from '@/store/slices/panierSlice'
 export default function Home() {
     const [books, setBooks] = useState([])
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [randomBooks, setRandomBooks] = useState([])
+    const [poetryBooks, setPoetryBooks] = useState([])
+    const [sciFiBooks, setSciFiBooks] = useState([])
     const dispatch = useDispatch()
     const search = useSelector(state => state.search.query?.toLowerCase())
 
@@ -51,10 +54,14 @@ export default function Home() {
         return getRandomBooks(categoryBooks, count)
     }
 
-    // Get different book selections
-    const randomBooks = getRandomBooks(books, 4)
-    const poetryBooks = getBooksByCategory('poetry', 4)
-    const sciFiBooks = getBooksByCategory('science fiction', 4)
+    // Set book selections only when books data changes (on page load/refresh)
+    useEffect(() => {
+        if (books.length > 0) {
+            setRandomBooks(getRandomBooks(books, 4))
+            setPoetryBooks(getBooksByCategory('poetry', 4))
+            setSciFiBooks(getBooksByCategory('science fiction', 4))
+        }
+    }, [books])
 
     // Carousel functionality
     const nextSlide = () => {
@@ -65,12 +72,12 @@ export default function Home() {
         setCurrentSlide((prev) => (prev - 1 + randomBooks.length) % randomBooks.length)
     }
 
-    // Auto-advance carousel
+    // Auto-advance carousel only
     useEffect(() => {
-      if (randomBooks.length > 0) {
-        const interval = setInterval(nextSlide, 5000) // Change slide every 5 seconds
-        return () => clearInterval(interval)
-      }
+        if (randomBooks.length > 0) {
+            const interval = setInterval(nextSlide, 5000)
+            return () => clearInterval(interval)
+        }
     }, [randomBooks.length])
 
     // Component to render a book card
@@ -123,7 +130,7 @@ export default function Home() {
                             className="carousel-track"
                             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                         >
-                            {randomBooks.map((book, index) => (
+                            {randomBooks.map((book) => (
                                 <div key={`carousel-${book.id}`} className="carousel-slide">
                                     <BookCard book={book} />
                                 </div>
