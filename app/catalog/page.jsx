@@ -75,8 +75,7 @@ export default function Catalog() {
                             </div>
                             <h2 className="book-title mt-4">{book.title}</h2>
                             <p className="book-author">{book.author}</p>
-                            <p className="book-description">{book.description}</p>
-                            <div className='d-flex gap-2'>
+                            <div className='d-flex gap-2 mt-1 mb-2'>
                                 <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
                                     <button>{book.categoryA}</button>
                                 </Link>
@@ -89,14 +88,19 @@ export default function Catalog() {
                                     </Link>
                                 )}
                             </div>
+                            <p className="book-description">{book.description}</p>
+
                             {/* Prix */}
-                            <div className="d-flex">
-                                <p>{book.price}</p>
-                                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
+                            <div className="d-flex mt-2 mb-1 gap-2">
+                                <p className="card-book-price">{book.price}€</p>
+                                <button
+                                onClick={() => dispatch(addBook(book))}
+                                className='btn-add-cart'
+                                >Add to cart</button>
                             </div>
                             {/* Bouton vers la page détails */}
                             <Link href={`/details/${book.id}`}>
-                                <button>View more</button>
+                                <button className="btn-view-more">View more</button>
                             </Link>
                             {/* <p>{book.rating}</p> */}
                         </div>
