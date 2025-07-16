@@ -123,7 +123,7 @@ export default function Home() {
         <>
             {/* Carousel - Books of the moment */}
             <section className="carousel-section">
-                <h2 className="section-title">Books of the Moment</h2>
+                <h2 className="section-title">Books of the month</h2>
                 <div className="carousel-container">
                     <div className="carousel-wrapper">
                         <div 
@@ -161,10 +161,10 @@ export default function Home() {
 
             {/* Poetry Books Section */}
             <section className="books-section">
-                <div className="section-header">
-                    <h2 className="section-title">Poetry Collection</h2>
+                <div className="section-header ">
+                    <h2 className="section-title">Our Poetry selection</h2>
                     <Link href="/category/poetry">
-                        <button className="view-more-section-btn">View More Poetry →</button>
+                        <button className="view-more-section-btn">View More Poetry</button>
                     </Link>
                 </div>
                 <div className="book-rangee">
@@ -180,11 +180,11 @@ export default function Home() {
             </section>
 
             {/* Science Fiction Books Section */}
-            <section className="books-section">
-                <div className="section-header">
-                    <h2 className="section-title">Science Fiction</h2>
+            <section className="books-section mt-5">
+                <div className="section-header ">
+                    <h2 className="section-title">Our Science Fiction selection</h2>
                     <Link href="/category/science fiction">
-                        <button className="view-more-section-btn">View More Sci-Fi →</button>
+                        <button className="view-more-section-btn">View More Sci-Fi</button>
                     </Link>
                 </div>
                 <div className="book-rangee">
