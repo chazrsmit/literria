@@ -174,7 +174,7 @@ export default function Home() {
                 </div>
                 {poetryBooks.length === 0 && (
                     <div className="no-books">
-                        <p>No poetry books available at the moment.</p>
+                        <p></p>
                     </div>
                 )}
             </section>
@@ -194,7 +194,7 @@ export default function Home() {
                 </div>
                 {sciFiBooks.length === 0 && (
                     <div className="no-books">
-                        <p>No science fiction books available at the moment.</p>
+                        <p></p>
                     </div>
                 )}
             </section>

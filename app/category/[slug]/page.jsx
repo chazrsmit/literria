@@ -72,9 +72,9 @@ export default function CategoryPage() {
     return (
         <>
             <div className="page-catalog">
-                <div className="category-header">
-                    <h1>Books in category: {categoryName}</h1>
-                    <p>{filteredBooks.length} books found</p>
+                <div className="category-header d-flex justify-content-between align-items-center w-100">
+                    <h5>Books in category: {categoryName} ({filteredBooks.length} books found)</h5>
+                    {/* <p>{filteredBooks.length} books found</p> */}
                     <Link href="/catalog">
                         <button className="back-btn">← Back to All Books</button>
                     </Link>
@@ -128,17 +128,17 @@ export default function CategoryPage() {
                 {hasMoreBooks && (
                     <div className="view-more-container">
                         <button
-                            className="view-more-btn"
+                            className="load-more-btn"
                             onClick={handleLoadMore}
                         >
-                            + ({filteredBooks.length - displayCount})
+                            Load More ({filteredBooks.length - displayCount})
                         </button>
                     </div>
                 )}
 
                 {filteredBooks.length === 0 && (
                     <div className="no-books">
-                        <p>No books found in this category.</p>
+                        <p></p>
                     </div>
                 )}
             </div>

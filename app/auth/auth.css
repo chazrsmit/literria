@@ -39,3 +39,17 @@
     border-radius: 5px;
     text-transform: lowercase;
 }
+
+.auth input::placeholder{
+    animation: beep 0.3s infinite;
+    opacity: 1;
+}
+
+@keyframes beep {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

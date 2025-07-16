@@ -61,6 +61,7 @@ export default function Catalog() {
             {/* <h1>Catalog</h1> */}
             {/* <SearchBar/> */}
         <div className="page-catalog">
+            <SearchBar />
                 <div className="book-rangee">
                     {displayedBooks.map(book => (
                         <div key={book.id} className="book">
@@ -106,10 +107,10 @@ export default function Catalog() {
                 {hasMoreBooks && (
                     <div className="view-more-container">
                         <button
-                            className="view-more-btn"
+                            className="load-more-btn"
                             onClick={handleLoadMore}
                         >
-                            + ({filteredBooks.length-displayCount})
+                            Load More ({filteredBooks.length-displayCount})
                         </button>
                     </div>
                 )}

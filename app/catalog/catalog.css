@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  margin-top: 30px;
   /* padding: 0 10px; */
 }
 
@@ -191,23 +192,24 @@ box-shadow: -19px 5px 21px -8px rgba(66, 68, 90, 1);
 }
 
 
-/* Bouton view more */
+/* Bouton load more */
 
 .view-more-container {
   margin-top: 40px;
 }
 
-.view-more-btn {
-  background-color: transparent;
+.load-more-btn {
+    background: transparent;
+    border: 1px var(--primary-color) dotted;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    width: 170px;
+    font-family: "Inter Tight";
+}
+
+.load-more-btn:hover {
+  text-transform: lowercase;
   border-radius: 5px;
-  font-family: "Inter Tight";
-  text-transform: uppercase;
-  border: none;
-  color: var(--accent-color);
-  height: 40px;
-  /* width: 200px; */
-  transition: all 0.2s ease-in;
-  font-size: 14px;
 }
 
 /* .view-more-btn:hover {
