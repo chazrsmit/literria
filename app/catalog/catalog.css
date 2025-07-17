@@ -166,7 +166,7 @@
 
 .book-title, .book-author {
     color: var(--primary-color);
-    font-family: "Inter";
+    font-family: "Inter Tight";
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 1px;

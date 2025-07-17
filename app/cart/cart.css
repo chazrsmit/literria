@@ -104,3 +104,8 @@
 .discount {
   color: var(--green-color) !important;
 }
+
+.striked-price span {
+    text-decoration: line-through;
+    font-size: smaller;
+}

@@ -189,7 +189,15 @@ export default function Home() {
 
                             {/* Prix */}
                             <div className="d-flex mt-2 mb-1 gap-2">
+                                {book.discountedPrice ?
+                                <>
                                 <p className="card-book-price">{book.price}€</p>
+                                <p className="card-book-price discounted">-10%</p>
+                                <p className="card-book-price promotion">{book.discountedPrice}€</p>
+                                </>
+                                :
+                                <p className="card-book-price">{book.price}€</p>
+                                }
                                 <button
                                 onClick={() => dispatch(addBook(book))}
                                 className='btn-add-cart'

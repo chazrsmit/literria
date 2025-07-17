@@ -124,15 +124,23 @@ export default function CategoryPage() {
                             <p className="book-description">{book.description}</p>
                             {/* Price */}
                             <div className="d-flex mt-2 mb-1 gap-2">
+                                {book.discountedPrice ?
+                                <>
                                 <p className="card-book-price">{book.price}€</p>
+                                <p className="card-book-price discounted">-10%</p>
+                                <p className="card-book-price promotion">{book.discountedPrice}€</p>
+                                </>
+                                :
+                                <p className="card-book-price">{book.price}€</p>
+                                }
                                 <button
                                 onClick={() => dispatch(addBook(book))}
                                 className='btn-add-cart'
                                 >Add to cart</button>
                             </div>
-                            {/* Button to details page */}
+                            {/* Bouton vers la page détails */}
                             <Link href={`/details/${book.id}`}>
-                                <button className="btn-view-more">View more</button>
+                                <button className="btn-view-more">view more</button>
                             </Link>
                         </div>
                     ))}

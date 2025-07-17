@@ -141,5 +141,58 @@
     "status": "completed",
     "createdAt": "2025-07-17T13:00:22.251Z",
     "orderNumber": "ORD-1752757222251"
+  },
+  {
+    "id": "1752758757656",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 172,
+        "title": "A Midsummer Night's Dream",
+        "author": "William Shakespeare",
+        "categoryA": "Classics",
+        "categoryB": "Plays",
+        "categoryC": "Fiction",
+        "image": "https://images.gr-assets.com/books/1327874534l/1622.jpg",
+        "description": "Shakespeare's intertwined love polygons begin to get complicated from the start--Demetrius and Lysander both want Hermia but she only has eyes for Lysander. Bad news is, Hermia's father wants Demetrius for a son-in-law. On the outside is Helena, whose unreturned love burns hot for Demetrius. Hermia and Lysander plan to flee from the city under cover of darkness but are pursued by an enraged Demetrius (who is himself pursued by an enraptured Helena). In the forest, unbeknownst to the mortals, Oberon and Titania (King and Queen of the faeries) are having a spat over a servant boy. The plot twists up when Oberon's head mischief-maker, Puck, runs loose with a flower which causes people to fall in love with the first thing they see upon waking. Throw in a group of labourers preparing a play for the Duke's wedding (one of whom is given a donkey's head and Titania for a lover by Puck) and the complications become fantastically funny.",
+        "rating": 3.94,
+        "price": 11.99,
+        "quantity": 1
+      },
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 11.99,
+        "quantity": 4
+      },
+      {
+        "id": 101,
+        "title": "1984",
+        "author": "George Orwell",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348990566l/5470.jpg",
+        "description": "Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmare vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality. The brilliance of the novel is Orwell's prescience of modern life--the ubiquity of television, the distortion of the language--and his ability to construct such a thorough version of hell. Required reading for students since it was published, it ranks among the most terrifying novels ever written.",
+        "rating": 4.16,
+        "price": 11.99,
+        "discountedPrice": 10.79,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 61.15,
+    "totalQuantity": 6,
+    "status": "completed",
+    "createdAt": "2025-07-17T13:25:57.656Z",
+    "orderNumber": "ORD-1752758757656"
   }
 ]
