@@ -44,7 +44,7 @@ export default function Orders() {
         <>
     <h3 className="cart-title mb-2">Delivery details</h3>
         <div className="page-cart">
-            <form onSubmit={handleSubmit} className="delivery-form border">
+            <form onSubmit={handleSubmit} className="delivery-form">
                 <input
                     type="text"
                     value={fullName}
@@ -75,7 +75,7 @@ export default function Orders() {
                     onChange={(e) => setCountry(e.target.value)}
                     placeholder="Country"
                 />
-                <div className="d-flex gap-2">
+                <div className="d-flex justify-content-between mt-2">
                     <Link href="/cart"><button className="view-more-section-btn mt-2">back to cart</button></Link>
                     <button type="submit" className="view-more-section-btn wider mt-2">proceed to payment</button>
                 </div>

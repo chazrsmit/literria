@@ -2,6 +2,11 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import '../cart/cart.css'
+import '../homepage.css'
+import './payment.css'
+import Link from 'next/link'
+
 
 export default function PaymentPage() {
     const router = useRouter()
@@ -26,9 +31,10 @@ export default function PaymentPage() {
     }
 
     return (
-        <div className="max-w-md mx-auto mt-10">
-            <h2>Payment</h2>
-            <form onSubmit={handlePayment} className="flex flex-col gap-3 mt-4">
+        <>
+        <h3 className="cart-title mb-2">Payment details</h3>
+        <div className="page-cart">
+            <form onSubmit={handlePayment} className="payment-form">
                 <input
                     type="text"
                     placeholder="Name on Card"
@@ -53,8 +59,12 @@ export default function PaymentPage() {
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
                 />
-                <button type="submit">Pay Now</button>
+                <div className="d-flex justify-content-between mt-2">
+                    <Link href="/orders"><button className="view-more-section-btn mt-2">back to delivery</button></Link>
+                    <button type="submit" className="view-more-section-btn wider mt-2">pay now</button>
+                </div>
             </form>
         </div>
+    </>
     )
 }

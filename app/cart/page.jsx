@@ -105,107 +105,113 @@ export default function Cart() {
     return (
         <>
             <h3 className="cart-title mb-2">Cart</h3>
-            <div className="page-cart">
-                <div className="cart border">
-                    <div className="cart-grid cart-header">
-                        <div></div>
-                        <div><p>Product</p></div>
-                        <div><p>Quantity</p></div>
-                        <div><p>Price</p></div>
-                        <div><p>Subtotal</p></div>
-                        <div></div>
-                    </div>
+                {cartItems.length > 0 && (
+                    <>
+                    <div className="page-cart">
+                        <div className="cart">
+                            <div className="cart-grid cart-header">
+                                <div></div>
+                                <div><p>Product</p></div>
+                                <div><p>Quantity</p></div>
+                                <div><p>Price</p></div>
+                                <div><p>Subtotal</p></div>
+                                <div></div>
+                            </div>
 
-                    {/* Cart Items */}
-                    <div>
-                        {itemGroup.map(item =>
-                            <div key={item.id} className="cart-grid cart-product">
-                                <div>
-                                    <img className="img-cart" src={item.image} alt="" />
-                                </div>
-                                <div>
-                                    <p className="p-0 m-0">{item.title}</p>
-                                </div>
-                                <div>
-                                    <p className="p-0 m-0">{item.quantity}</p>
-                                </div>
-                                <div>
-                                    {item.discountedPrice ? (
-                                        <p className="p-0 m-0 striked-price">
-                                            <span>{item.price}€</span> {item.discountedPrice}€
-                                        </p>
-                                    ) : (
-                                        <p className="p-0 m-0">{item.price}€</p>
+                            {/* Cart Items */}
+                            <div>
+                                {itemGroup.map(item =>
+                                    <div key={item.id} className="cart-grid cart-product">
+                                        <div>
+                                            <img className="img-cart" src={item.image} alt="" />
+                                        </div>
+                                        <div>
+                                            <p className="p-0 m-0">{item.title}</p>
+                                        </div>
+                                        <div>
+                                            <p className="p-0 m-0">{item.quantity}</p>
+                                        </div>
+                                        <div>
+                                            {item.discountedPrice ? (
+                                                <p className="p-0 m-0 striked-price">
+                                                    <span>{item.price}€</span> {item.discountedPrice}€
+                                                </p>
+                                            ) : (
+                                                <p className="p-0 m-0">{item.price}€</p>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <p className="p-0 m-0">
+                                                {((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)}€
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <button onClick={() => dispatch(deleteBook(item.id))}>X</button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Cart Footer */}
+                            <div className="cart-footer">
+                                <div className="cart-totals">
+                                    <div className="d-flex justify-content-between m-0 p-0 align-items-center total1">
+                                        <p className="p-0 m-0">Total quantity</p>
+                                        <p className="p-0 m-0">{qtTotale}</p>
+                                    </div>
+
+                                    {promotion.freeBooks > 0 && (
+                                        <div className="promotion-section">
+                                            <div className="d-flex justify-content-between m-0 p-0 align-items-center promotion-info">
+                                                <p className="p-0 m-0 discount">
+                                                    ❭ Above 5 books, a 4+1 free discount is applied!
+                                                </p>
+                                            </div>
+                                            <div className="d-flex justify-content-between m-0 p-0 align-items-center">
+                                                <p className="p-0 m-0" style={{ fontSize: '0.9em' }}>
+                                                    {promotion.freeBooks} free book(s): "{promotion.cheapestBookTitle}"
+                                                </p>
+                                                <p className="p-0 m-0 discount">
+                                                    -{promotion.discount.toFixed(2)}€
+                                                </p>
+                                            </div>
+                                        </div>
                                     )}
-                                </div>
-                                <div>
-                                    <p className="p-0 m-0">
-                                        {((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)}€
-                                    </p>
-                                </div>
-                                <div>
-                                    <button onClick={() => dispatch(deleteBook(item.id))}>X</button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
 
-                    {/* Cart Footer */}
-                    {cartItems.length > 0 && (
-                        <div className="cart-footer">
-                            <div className="cart-totals">
-                                <div className="d-flex justify-content-between m-0 p-0 align-items-center total1">
-                                    <p className="p-0 m-0">Total quantity</p>
-                                    <p className="p-0 m-0">{qtTotale}</p>
-                                </div>
-
-                                {promotion.freeBooks > 0 && (
-                                    <div className="promotion-section">
-                                        <div className="d-flex justify-content-between m-0 p-0 align-items-center promotion-info">
-                                            <p className="p-0 m-0 discount">
-                                                ❭ Above 5 books, a 4+1 free discount is applied!
-                                            </p>
-                                        </div>
-                                        <div className="d-flex justify-content-between m-0 p-0 align-items-center">
-                                            <p className="p-0 m-0" style={{ fontSize: '0.9em' }}>
-                                                {promotion.freeBooks} free book(s): "{promotion.cheapestBookTitle}"
-                                            </p>
-                                            <p className="p-0 m-0 discount">
-                                                -{promotion.discount.toFixed(2)}€
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className="d-flex justify-content-between m-0 p-0 align-items-center">
-                                    <p className="p-0 m-0">Subtotal</p>
-                                    <p className="p-0 m-0">{originalTotal.toFixed(2)}€</p>
-                                </div>
-
-                                {promotion.discount > 0 && (
                                     <div className="d-flex justify-content-between m-0 p-0 align-items-center">
-                                        <p className="p-0 m-0 discount">❭ Discount</p>
-                                        <p className="p-0 m-0 discount">-{promotion.discount.toFixed(2)}€</p>
+                                        <p className="p-0 m-0">Subtotal</p>
+                                        <p className="p-0 m-0">{originalTotal.toFixed(2)}€</p>
                                     </div>
-                                )}
 
-                                <div className="d-flex justify-content-between m-0 p-0 align-items-center total2">
-                                    <p className="p-0 m-0"><strong>Total to pay</strong></p>
-                                    <p className="p-0 m-0"><strong>{finalTotal.toFixed(2)}€</strong></p>
+                                    {promotion.discount > 0 && (
+                                        <div className="d-flex justify-content-between m-0 p-0 align-items-center">
+                                            <p className="p-0 m-0 discount">❭ Discount</p>
+                                            <p className="p-0 m-0 discount">-{promotion.discount.toFixed(2)}€</p>
+                                        </div>
+                                    )}
+
+                                    <div className="d-flex justify-content-between m-0 p-0 align-items-center total2">
+                                        <p className="p-0 m-0"><strong>Total to pay</strong></p>
+                                        <p className="p-0 m-0"><strong>{finalTotal.toFixed(2)}€</strong></p>
+                                    </div>
                                 </div>
+
+                                <button onClick={handleCheckout} className="view-more-section-btn mt-2">order</button>
                             </div>
-
-                            <button onClick={handleCheckout} className="view-more-section-btn mt-2">order</button>
                         </div>
-                    )}
+                    </div>
+                    </>
+                )}
 
-                    {cartItems.length === 0 && (
-                        <div>
-                            <p>Your cart is empty.</p>
+                {/* empty cart */}
+                {cartItems.length === 0 && (
+                    <div className="page-empty-cart">
+                        <div className="d-flex justify-content-start">
+                            <p className="empty-car p-0 m-0">Your cart is empty.</p>
                         </div>
-                    )}
-                </div>
-            </div>
+                    </div>
+                )}
+            
         </>
     )
 }

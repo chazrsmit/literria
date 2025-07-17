@@ -1,5 +1,6 @@
-.delivery-form {
-    width: 100%;
+
+.payment-form {
+        width: 100%;
     max-width: 800px;
     /* border: 1px solid #ccc; */
     padding: 1rem;
@@ -7,18 +8,14 @@
     border-bottom: 1px solid var(--primary-color); */
 }
 
-.view-more-section-btn.wider {
-    width: auto;
-}
-
-.delivery-form input {
+.payment-form input {
     border-bottom: 1px solid var(--primary-color);
 }
 
-.delivery-form input:focus {
+.payment-form input:focus {
     color: var(--accent-color);
 }
 
-.delivery-form input:nth-of-type(1) {
+.payment-form input:nth-of-type(1) {
     border-top: 1px solid var(--primary-color);
 }
