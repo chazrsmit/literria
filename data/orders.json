@@ -953,5 +953,290 @@
     "status": "completed",
     "createdAt": "2025-07-17T14:14:03.144Z",
     "orderNumber": "ORD-1752761643144"
+  },
+  {
+    "id": "1752790305148",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 16.99,
+        "discountedPrice": null,
+        "quantity": 1
+      },
+      {
+        "id": 101,
+        "title": "1984",
+        "author": "George Orwell",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348990566l/5470.jpg",
+        "description": "Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmare vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality. The brilliance of the novel is Orwell's prescience of modern life--the ubiquity of television, the distortion of the language--and his ability to construct such a thorough version of hell. Required reading for students since it was published, it ranks among the most terrifying novels ever written.",
+        "rating": 4.16,
+        "price": 29.99,
+        "discountedPrice": 26.99,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 43.98,
+    "totalQuantity": 2,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:11:45.148Z",
+    "orderNumber": "ORD-1752790305148"
+  },
+  {
+    "id": "1752790325496",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 16.99,
+        "discountedPrice": null,
+        "quantity": 1
+      },
+      {
+        "id": 101,
+        "title": "1984",
+        "author": "George Orwell",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348990566l/5470.jpg",
+        "description": "Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmare vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality. The brilliance of the novel is Orwell's prescience of modern life--the ubiquity of television, the distortion of the language--and his ability to construct such a thorough version of hell. Required reading for students since it was published, it ranks among the most terrifying novels ever written.",
+        "rating": 4.16,
+        "price": 29.99,
+        "discountedPrice": 26.99,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 43.98,
+    "totalQuantity": 2,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:12:05.496Z",
+    "orderNumber": "ORD-1752790325496"
+  },
+  {
+    "id": "1752790669719",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 5.99,
+        "discountedPrice": 5.39,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 5.39,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:17:49.719Z",
+    "orderNumber": "ORD-1752790669719"
+  },
+  {
+    "id": "1752790679388",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 5.99,
+        "discountedPrice": 5.39,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 5.39,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:17:59.388Z",
+    "orderNumber": "ORD-1752790679388"
+  },
+  {
+    "id": "1752790815390",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 214,
+        "title": "A Confederacy of Dunces",
+        "author": "John Kennedy Toole",
+        "categoryA": "Fiction",
+        "categoryB": "Classics",
+        "categoryC": "Humor",
+        "image": "https://images.gr-assets.com/books/1436747103l/310612.jpg",
+        "description": "Alternate cover for this ISBN can be found here\"A green hunting cap squeezed the top of the fleshy balloon of a head. The green earflaps, full of large ears and uncut hair and the fine bristles that grew in the ears themselves, stuck out on either side like turn signals indicating two directions at once. Full, pursed lips protruded beneath the bushy black moustache and, at their corners, sank into little folds filled with disapproval and potato chip crumbs.\"Meet Ignatius J. Reilly, the hero of John Kennedy Toole's tragicomic tale, A Confederacy of Dunces. This 30-year-old medievalist lives at home with his mother in New Orleans, pens his magnum opus on Big Chief writing pads he keeps hidden under his bed, and relays to anyone who will listen the traumatic experience he once had on a Greyhound Scenicruiser bound for Baton Rouge. (\"Speeding along in that bus was like hurtling into the abyss.\") But Ignatius's quiet life of tyrannizing his mother and writing his endless comparative history screeches to a halt when he is almost arrested by the overeager Patrolman Mancuso--who mistakes him for a vagrant--and then involved in a car accident with his tipsy mother behind the wheel. One thing leads to another, and before he knows it, Ignatius is out pounding the pavement in search of a job.Over the next several hundred pages, our hero stumbles from one adventure to the next. His stint as a hotdog vendor is less than successful, and he soon turns his employers at the Levy Pants Company on their heads. Ignatius's path through the working world is populated by marvelous secondary characters: the stripper Darlene and her talented cockatoo; the septuagenarian secretary Miss Trixie, whose desperate attempts to retire are constantly, comically thwarted; gay blade Dorian Greene; sinister Miss Lee, proprietor of the Night of Joy nightclub; and Myrna Minkoff, the girl Ignatius loves to hate. The many subplots that weave through A Confederacy of Dunces are as complicated as anything you'll find in a Dickens novel, and just as beautifully tied together in the end. But it is Ignatius--selfish, domineering, and deluded, tragic and comic and larger than life--who carries the story. He is a modern-day Quixote beset by giants of the modern age. His fragility cracks the shell of comic bluster, revealing a deep streak of melancholy beneath the antic humor. John Kennedy Toole committed suicide in 1969 and never saw the publication of his novel. Ignatius Reilly is what he left behind, a fitting memorial to a talented and tormented life.",
+        "rating": 3.89,
+        "price": 21.99,
+        "discountedPrice": null,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 21.99,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:20:15.390Z",
+    "orderNumber": "ORD-1752790815390"
+  },
+  {
+    "id": "1752790815540",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 214,
+        "title": "A Confederacy of Dunces",
+        "author": "John Kennedy Toole",
+        "categoryA": "Fiction",
+        "categoryB": "Classics",
+        "categoryC": "Humor",
+        "image": "https://images.gr-assets.com/books/1436747103l/310612.jpg",
+        "description": "Alternate cover for this ISBN can be found here\"A green hunting cap squeezed the top of the fleshy balloon of a head. The green earflaps, full of large ears and uncut hair and the fine bristles that grew in the ears themselves, stuck out on either side like turn signals indicating two directions at once. Full, pursed lips protruded beneath the bushy black moustache and, at their corners, sank into little folds filled with disapproval and potato chip crumbs.\"Meet Ignatius J. Reilly, the hero of John Kennedy Toole's tragicomic tale, A Confederacy of Dunces. This 30-year-old medievalist lives at home with his mother in New Orleans, pens his magnum opus on Big Chief writing pads he keeps hidden under his bed, and relays to anyone who will listen the traumatic experience he once had on a Greyhound Scenicruiser bound for Baton Rouge. (\"Speeding along in that bus was like hurtling into the abyss.\") But Ignatius's quiet life of tyrannizing his mother and writing his endless comparative history screeches to a halt when he is almost arrested by the overeager Patrolman Mancuso--who mistakes him for a vagrant--and then involved in a car accident with his tipsy mother behind the wheel. One thing leads to another, and before he knows it, Ignatius is out pounding the pavement in search of a job.Over the next several hundred pages, our hero stumbles from one adventure to the next. His stint as a hotdog vendor is less than successful, and he soon turns his employers at the Levy Pants Company on their heads. Ignatius's path through the working world is populated by marvelous secondary characters: the stripper Darlene and her talented cockatoo; the septuagenarian secretary Miss Trixie, whose desperate attempts to retire are constantly, comically thwarted; gay blade Dorian Greene; sinister Miss Lee, proprietor of the Night of Joy nightclub; and Myrna Minkoff, the girl Ignatius loves to hate. The many subplots that weave through A Confederacy of Dunces are as complicated as anything you'll find in a Dickens novel, and just as beautifully tied together in the end. But it is Ignatius--selfish, domineering, and deluded, tragic and comic and larger than life--who carries the story. He is a modern-day Quixote beset by giants of the modern age. His fragility cracks the shell of comic bluster, revealing a deep streak of melancholy beneath the antic humor. John Kennedy Toole committed suicide in 1969 and never saw the publication of his novel. Ignatius Reilly is what he left behind, a fitting memorial to a talented and tormented life.",
+        "rating": 3.89,
+        "price": 21.99,
+        "discountedPrice": null,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 21.99,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:20:15.540Z",
+    "orderNumber": "ORD-1752790815540"
+  },
+  {
+    "id": "1752791765120",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 228,
+        "title": "A Light in the Attic",
+        "author": "Shel Silverstein",
+        "categoryA": "Poetry",
+        "categoryB": "Childrens",
+        "categoryC": "Classics",
+        "image": "https://images.gr-assets.com/books/1427169918l/30118.jpg",
+        "description": "Last night while I lay thinking here Some Whatifs crawled inside my ear And pranced and partied all night long And sang their same old Whatif song: Whatif I flunk that test?Whatif green hair grows on my chest?Whatif nobody likes me?Whatif a bolt of lightning strikes me?...This 20th anniversary of Shel Silverstein's A Light in the Attic includes a CD of highlights from his Grammy Award-winning album.Here in the attic of Shel Silverstein you will find Backward Bill, Sour Face Ann, the Meehoo with an Exactlywatt, and the Polar Bear in the Frigidaire. You will talk with Broiled Face, and find out what happens when Somebody steals your knees, you get caught by the Quick-Digesting Gink, a Mountain snores, and They Put a Brassiere on the Camel.From the creator of the beloved poetry collections Where the Sidewalk Ends and Falling Up, here is another wondrous book of poems and drawings.",
+        "rating": 4.34,
+        "price": 29.99,
+        "discountedPrice": null,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 29.99,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:36:05.120Z",
+    "orderNumber": "ORD-1752791765120"
+  },
+  {
+    "id": "1752791912991",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 173,
+        "title": "The Prophet",
+        "author": "Kahlil Gibran",
+        "categoryA": "Poetry",
+        "categoryB": "Philosophy",
+        "categoryC": "Classics",
+        "image": "https://images.gr-assets.com/books/1355046521l/2547.jpg",
+        "description": "Kahlil Gibran’s masterpiece, The Prophet, is one of the most beloved classics of our time. Published in 1923, it has been translated into more than twenty languages, and the American editions alone have sold more than nine million copies.The Prophet is a collection of poetic essays that are philosophical, spiritual, and, above all, inspirational. Gibran’s musings are divided into twenty-eight chapters covering such sprawling topics as love, marriage, children, giving, eating and drinking, work, joy and sorrow, housing, clothes, buying and selling, crime and punishment, laws, freedom, reason and passion, pain, self-knowledge, teaching, friendship, talking, time, good and evil, prayer, pleasure, beauty, religion, and death.",
+        "rating": 4.23,
+        "price": 5.99,
+        "discountedPrice": null,
+        "quantity": 1
+      },
+      {
+        "id": 142,
+        "title": "The Divine Comedy",
+        "author": "Dante Alighieri",
+        "categoryA": "Classics",
+        "categoryB": "Poetry",
+        "categoryC": "Fiction",
+        "image": "https://images.gr-assets.com/books/1390760180l/6656.jpg",
+        "description": "The Divine Comedy describes Dante's descent into Hell with Virgil as a guide; his ascent of Mount Purgatory and encounter with his dead love, Beatrice; and finally, his arrival in Heaven. Examining questions of faith, desire and enlightenment, the poem is a brilliantly nuanced and moving allegory of human redemption. Dante Alighieri was born in Florence in 1265 and belonged to a noble but impoverished family. His life was divided by political duties and poetry, the most of famous of which was inspired by his meeting with Bice Portinari, whom he called Beatrice,including La Vita Nuova and The Divine Comedy. He died in Ravenna in 1321.",
+        "rating": 4.07,
+        "price": 16.99,
+        "discountedPrice": 15.29,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 21.28,
+    "totalQuantity": 2,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:38:32.991Z",
+    "orderNumber": "ORD-1752791912991"
+  },
+  {
+    "id": "1752792067159",
+    "userId": "chaarlottesmit@gmail.com",
+    "userEmail": "chaarlottesmit@gmail.com",
+    "userName": "Charlotte Smit",
+    "items": [
+      {
+        "id": 81,
+        "title": "A Clockwork Orange",
+        "author": "Anthony Burgess",
+        "categoryA": "Classics",
+        "categoryB": "Fiction",
+        "categoryC": "Science Fiction",
+        "image": "https://images.gr-assets.com/books/1348339306l/227463.jpg",
+        "description": "A vicious fifteen-year-old \"droog\" is the central character of this 1963 classic, whose stark terror was captured in Stanley Kubrick's magnificent film of the same title.In Anthony Burgess's nightmare vision of the future, where criminals take over after dark, the story is told by the central character, Alex, who talks in a brutal invented slang that brilliantly renders his and his friends' social pathology. A Clockwork Orange is a frightening fable about good and evil, and the meaning of human freedom. When the state undertakes to reform Alex—to \"redeem\" him—the novel asks, \"At what cost?\"This edition includes the controversial last chapter not published in the first edition and Burgess's introduction \"A Clockwork Orange Resucked\".",
+        "rating": 3.99,
+        "price": 21.99,
+        "discountedPrice": null,
+        "quantity": 1
+      }
+    ],
+    "totalAmount": 21.99,
+    "totalQuantity": 1,
+    "status": "completed",
+    "createdAt": "2025-07-17T22:41:07.159Z",
+    "orderNumber": "ORD-1752792067159"
   }
 ]

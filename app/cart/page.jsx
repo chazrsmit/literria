@@ -64,43 +64,22 @@ export default function Cart() {
     const promotion = calculatePromotionDiscount()
     const finalTotal = originalTotal - promotion.discount
 
-    const handleCheckout = async () => {
-        if (!session) {
-            router.push('/auth')
-            return
-        }
+// In your Cart component, replace the handleCheckout function with this:
 
-        const orderData = {
-            cartItems,
-            originalTotal,
-            discount: promotion.discount,
-            finalTotal,
-            promotion
-        }
-
-        try {
-            const response = await fetch('/api/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    cartItems,
-                    total: finalTotal
-                })
-            })
-
-            if (response.ok) {
-                const data = await response.json()
-                dispatch(setOrderData(orderData))
-                router.push('/orders')
-            } else {
-                console.error("Order failed:", response.status, response.statusText)
-            }
-        } catch (error) {
-            console.error("Checkout error:", error)
-        }
+const handleCheckout = async () => {
+    if (!session) {
+        router.push('/auth')
+        return
     }
+
+    if (cartItems.length === 0) {
+        alert('Your cart is empty')
+        return
+    }
+
+    // Just redirect to orders page, order creation will happen in payment page
+    router.push('/orders')
+}
 
     return (
         <>
