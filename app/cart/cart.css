@@ -100,3 +100,7 @@
 .total2 {
   border-bottom: 1px solid var(--accent-color);
 }
+
+.discount {
+  color: var(--green-color) !important;
+}

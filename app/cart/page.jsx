@@ -5,6 +5,7 @@ import './cart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import '../homepage.css'
 
 export default function Cart() {
 
@@ -28,11 +29,35 @@ export default function Cart() {
         }
         return newArray
     }, [])
-    //  empty array => la valeur initiale du reduce : un empty array qu'on va ensuite accumuler. il faut faire en sorte que ce soit un array vide car on va utiliser la méthode FIND dessus => il faut un array d'objets et pas un objet, s'il n'y avait pas cette précision par défaut react prendrait le premier item de cartItem (un objet).
 
-    // total du panier :
-    const total = cartItems.reduce((total, currentValue) => total = total + currentValue.price
-    , 0)
+    // Promotion logic: 4+1 free (cheapest book free when 5+ books)
+    const calculatePromotionDiscount = () => {
+        const totalBooks = cartItems.length
+        if (totalBooks >= 5) {
+            // Find the cheapest book
+            const sortedByPrice = [...cartItems].sort((a, b) => a.price - b.price)
+            const cheapestBook = sortedByPrice[0]
+            
+            // Calculate how many free books (one free book per 5 books)
+            const freeBooks = Math.floor(totalBooks / 5)
+            
+            return {
+                discount: cheapestBook.price * freeBooks,
+                freeBooks: freeBooks,
+                cheapestBookPrice: cheapestBook.price,
+                cheapestBookTitle: cheapestBook.title
+            }
+        }
+        return { discount: 0, freeBooks: 0, cheapestBookPrice: 0, cheapestBookTitle: '' }
+    }
+
+    const promotion = calculatePromotionDiscount()
+
+    // total du panier (original):
+    const originalTotal = cartItems.reduce((total, currentValue) => total = total + currentValue.price, 0)
+    
+    // total après promotion:
+    const finalTotal = originalTotal - promotion.discount
 
     // total quantité:
     const qtTotale = useSelector(selectQuantity)
@@ -51,20 +76,20 @@ export default function Cart() {
                 },
                 body: JSON.stringify({
                     cartItems: cartItems,
-                    total: total
+                    originalTotal: originalTotal,
+                    discount: promotion.discount,
+                    finalTotal: finalTotal
                 })
             })
 
             if (response.ok) {
                 const data = await response.json()
-            
-                
                 router.push('/orders')
             }
-            } catch (error) {
+        } catch (error) {
             console.error("Checkout error:", error)
-            }
-            }
+        }
+    }
 
     return (
 
@@ -118,40 +143,52 @@ export default function Cart() {
                 {
                     cartItems.length > 0 &&
                 <>
-
                       <div className="cart-footer">
                         <div className="cart-totals">
                             <div className="d-flex justify-content-between  m-0 p-0 align-items-center total1">
                                 <p className="p-0 m-0">Total quantity</p>
                                 <p className="p-0 m-0">{qtTotale}</p>
                             </div>
+                            
+                            {/* Show promotion details if applicable */}
+                            {promotion.freeBooks > 0 && (
+                                <div className="promotion-section">
+                                    <div className="d-flex justify-content-between m-0 p-0 align-items-center promotion-info">
+                                        <p className="p-0 m-0 discount">
+                                            ❭ Above 5 books, a 4+1 discount is applied!
+                                        </p>
+                                    </div>
+                                    <div className="d-flex justify-content-between m-0 p-0 align-items-center">
+                                        <p className="p-0 m-0" style={{fontSize: '0.9em'}}>
+                                            {promotion.freeBooks} free book(s): "{promotion.cheapestBookTitle}"
+                                        </p>
+                                        <p className="p-0 m-0 discount">
+                                            -{promotion.discount.toFixed(2)}€
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                            
+                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                                <p className="p-0 m-0">Subtotal</p>
+                                <p className="p-0 m-0">{originalTotal.toFixed(2)}€</p>
+                            </div>
+                            
+                            {promotion.discount > 0 && (
+                                <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                                    <p className="p-0 m-0 discount">❭ Discount</p>
+                                    <p className="p-0 m-0 discount">-{promotion.discount.toFixed(2)}€</p>
+                                </div>
+                            )}
+                            
                             <div className="d-flex justify-content-between  m-0 p-0 align-items-center total2">
-                                <p className="p-0 m-0">Total to pay</p>
-                                <p className="p-0 m-0">{total.toFixed(2)}€</p>
+                                <p className="p-0 m-0"><strong>Total to pay</strong></p>
+                                <p className="p-0 m-0"><strong>{finalTotal.toFixed(2)}€</strong></p>
                             </div>
                         </div> 
                         <input className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
                         <button onClick={handleCheckout} className="view-more-section-btn">order</button>
                     </div>
-
-                {/* <div>
-                    <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
-                        <p className="p-0 m-0">Total quantity</p>
-                        <p className="p-0 m-0">{qtTotale}</p>
-                    </div>
-                    <div>
-                        <input type="text" className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
-                    </div>
-                    <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
-                        <p>Total</p>
-                        <p>{total}</p>
-                    </div>
-                </div>
-
-                <div>
-                    <button
-                    onClick={handleCheckout}>Commander</button>
-                </div> */}
                 </>
                 }
 
