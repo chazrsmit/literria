@@ -246,6 +246,15 @@
   font-family: "Inter";
   font-size: 0.9rem;
 }
+.card-book-price.promotion {
+  background: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.card-book-price.discounted {
+  color: var(--green-color);
+  border: 1px solid var(--green-color);
+}
 
 /* Add 2 cart */
 .btn-add-cart {

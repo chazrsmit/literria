@@ -1,6 +1,6 @@
 'use client'
 
-import { clearCart, deleteBook, selectQuantity } from "@/store/slices/panierSlice";
+import { clearCart, deleteBook, selectQuantity, selectCartItems, setOrderData } from "@/store/slices/panierSlice";
 import './cart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
@@ -14,7 +14,7 @@ export default function Cart() {
 
     const { data: session } = useSession()
 
-    const cartItems = useSelector(state => state.panier)
+    const cartItems = useSelector(selectCartItems)
 
     const itemGroup = cartItems.reduce((newArray, book) => {
         // on check si le livre existe déjà dans le cart
@@ -68,6 +68,16 @@ export default function Cart() {
             router.push('/auth')
             return
         }
+        
+        // Store order data in Redux for the checkout process
+        const orderData = {
+            cartItems: cartItems,
+            originalTotal: originalTotal,
+            discount: promotion.discount,
+            finalTotal: finalTotal,
+            promotion: promotion
+        }
+        
         try {
             const response = await fetch('/api/orders', {
                 method: 'POST',
@@ -76,15 +86,17 @@ export default function Cart() {
                 },
                 body: JSON.stringify({
                     cartItems: cartItems,
-                    originalTotal: originalTotal,
-                    discount: promotion.discount,
-                    finalTotal: finalTotal
+                    total: finalTotal
                 })
             })
 
             if (response.ok) {
                 const data = await response.json()
+                // Store order data for the checkout process
+                dispatch(setOrderData(orderData))
                 router.push('/orders')
+            } else {
+                console.error("Order failed:", response.status, response.statusText)
             }
         } catch (error) {
             console.error("Checkout error:", error)
@@ -155,7 +167,7 @@ export default function Cart() {
                                 <div className="promotion-section">
                                     <div className="d-flex justify-content-between m-0 p-0 align-items-center promotion-info">
                                         <p className="p-0 m-0 discount">
-                                            ❭ Above 5 books, a 4+1 discount is applied!
+                                            ❭ Above 5 books, a 4+1 free discount is applied!
                                         </p>
                                     </div>
                                     <div className="d-flex justify-content-between m-0 p-0 align-items-center">
@@ -186,8 +198,8 @@ export default function Cart() {
                                 <p className="p-0 m-0"><strong>{finalTotal.toFixed(2)}€</strong></p>
                             </div>
                         </div> 
-                        <input className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
-                        <button onClick={handleCheckout} className="view-more-section-btn">order</button>
+                        {/* <input className="input-coupon m-0 p-0" placeholder="Enter your coupon code" /> */}
+                        <button onClick={handleCheckout} className="view-more-section-btn mt-2">order</button>
                     </div>
                 </>
                 }

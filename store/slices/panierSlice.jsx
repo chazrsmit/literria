@@ -14,8 +14,21 @@ const loadCart = () => {
     return []
 }
 
-// on save le cart
+// Load order data (for order process steps)
+const loadOrderData = () => {
+    if (typeof window !== 'undefined') {
+        try {
+            const saved = localStorage.getItem('orderData')
+            return saved ? JSON.parse(saved) : null
+        } catch (error) {
+            console.error('Error loading order data from localStorage:', error)
+            return null
+        }
+    }
+    return null
+}
 
+// on save le cart
 const saveCart = (cart) => {
     if (typeof window !== 'undefined') {
         try {
@@ -27,29 +40,61 @@ const saveCart = (cart) => {
     }
 }
 
+// Save order data
+const saveOrderData = (orderData) => {
+    if (typeof window !== 'undefined') {
+        try {
+            localStorage.setItem('orderData', JSON.stringify(orderData))
+        }
+        catch(error) {
+            console.error(error)
+        }
+    }
+}
+
 const panierSlice = createSlice({
     name: 'panier',
-    initialState: loadCart(),
+    initialState: {
+        items: loadCart(),
+        orderData: loadOrderData() // For storing order info during checkout process
+    },
     reducers: {
         addBook: (state, action) => {
-            state.push(action.payload)
-            saveCart(state)
+            state.items.push(action.payload)
+            saveCart(state.items)
         },
         deleteBook: (state, action) => {
-            const newState = state.filter(i => i.id !== action.payload)
-            saveCart(newState)
-            return newState
+            const newItems = state.items.filter(i => i.id !== action.payload)
+            state.items = newItems
+            saveCart(newItems)
         },
         clearCart: (state) => {
+            state.items = []
             saveCart([])
-            return []
+        },
+        // New action to store order data during checkout process
+        setOrderData: (state, action) => {
+            state.orderData = action.payload
+            saveOrderData(action.payload)
+        },
+        // Clear order data after successful payment
+        clearOrderData: (state) => {
+            state.orderData = null
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem('orderData')
+            }
         }
     }
 })
 
-// calcul de la qunatité totale du panier à utiliser dans la nav et dans le cart
-export const selectQuantity = (state) => state.panier.length
+// calcul de la quantité totale du panier à utiliser dans la nav et dans le cart
+export const selectQuantity = (state) => state.panier.items.length
 
+// Selector for order data
+export const selectOrderData = (state) => state.panier.orderData
+
+// Selector for cart items
+export const selectCartItems = (state) => state.panier.items
 
 export default panierSlice.reducer
-export const { addBook, deleteBook, clearCart } = panierSlice.actions
+export const { addBook, deleteBook, clearCart, setOrderData, clearOrderData } = panierSlice.actions
