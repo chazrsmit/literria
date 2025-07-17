@@ -14,8 +14,25 @@ export default function Home() {
     const [randomBooks, setRandomBooks] = useState([])
     const [poetryBooks, setPoetryBooks] = useState([])
     const [sciFiBooks, setSciFiBooks] = useState([])
+    const [isCarouselEnabled, setIsCarouselEnabled] = useState(false)
     const dispatch = useDispatch()
     const search = useSelector(state => state.search.query?.toLowerCase())
+
+        // Check screen size for carousel functionality
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsCarouselEnabled(window.innerWidth >= 720)
+        }
+        
+        // Check on mount
+        checkScreenSize()
+        
+        // Add resize listener
+        window.addEventListener('resize', checkScreenSize)
+        
+        // Cleanup
+        return () => window.removeEventListener('resize', checkScreenSize)
+    }, [])
 
     useEffect(() => {
         async function fetchBooks() {
@@ -65,20 +82,31 @@ export default function Home() {
 
     // Carousel functionality
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % randomBooks.length)
+        if (isCarouselEnabled) {
+            setCurrentSlide((prev) => (prev + 1) % randomBooks.length)
+        }
     }
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + randomBooks.length) % randomBooks.length)
+        if (isCarouselEnabled) {
+            setCurrentSlide((prev) => (prev - 1 + randomBooks.length) % randomBooks.length)
+        }
     }
 
-    // Auto-advance carousel only
+   // Auto-advance carousel only for screens 720px and above
     useEffect(() => {
-        if (randomBooks.length > 0) {
+        if (randomBooks.length > 0 && isCarouselEnabled) {
             const interval = setInterval(nextSlide, 5000)
             return () => clearInterval(interval)
         }
-    }, [randomBooks.length])
+    }, [randomBooks.length, isCarouselEnabled])
+
+    // Reset slide position when carousel is disabled
+    useEffect(() => {
+        if (!isCarouselEnabled) {
+            setCurrentSlide(0)
+        }
+    }, [isCarouselEnabled])
 
 
     // Component to render a book card in the carousel
@@ -95,32 +123,33 @@ export default function Home() {
                     </div>
 
             </div>
-                        <h2 className="book-title mt-4">{book.title}</h2>
-            <p className="book-author">{book.author}</p>
-            <p className="book-description">{book.description}</p>
-            <div className='d-flex gap-2'>
-                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
-                    <button>{book.categoryA}</button>
+            <div className="details">
+                <h2 className="book-title mt-4">{book.title}</h2>
+                <p className="book-author">{book.author}</p>
+                <p className="book-description">{book.description}</p>
+                <div className='d-flex gap-2'>
+                    <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                        <button>{book.categoryA}</button>
+                    </Link>
+                    {book.categoryB && (
+                        <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                            <button>{book.categoryB}</button>
+                        </Link>
+                    )}
+                    {book.categoryC && (
+                        <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                            <button>{book.categoryC}</button>
+                        </Link>
+                    )}
+                </div>
+                <div className="d-flex">
+                    <p>{book.price}</p>
+                    <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
+                </div>
+                <Link href={`/details/${book.id}`}>
+                    <button>View more</button>
                 </Link>
-                {book.categoryB && (
-                    <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
-                        <button>{book.categoryB}</button>
-                    </Link>
-                )}
-                {book.categoryC && (
-                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
-                        <button>{book.categoryC}</button>
-                    </Link>
-                )}
             </div>
-            <div className="d-flex">
-                <p>{book.price}</p>
-                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
-            </div>
-            <Link href={`/details/${book.id}`}>
-                <button>View more</button>
-            </Link>
-
         </div>
     )
 

@@ -42,6 +42,10 @@
 
 /* Carousel functionality for devices 720px and above */
 @media (min-width: 720px) {
+    /* Details carousel */
+    .details {
+        display:none;
+    }
     .carousel-container {
         overflow: hidden;
     }
@@ -215,3 +219,4 @@ background-image: radial-gradient(
     background: transparent;
     width: 200px;
 }
+
