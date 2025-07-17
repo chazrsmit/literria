@@ -30,11 +30,13 @@
     transition: all 0.3s ease;
     width: 160px;
     font-family: "Inter Tight";
+    text-transform: lowercase;
+    border-radius: 5px;
 }
 
 .back-btn:hover {
-    text-transform: lowercase;
-    border-radius: 5px;
+    text-transform: capitalize;
+    border-radius: 0px;
 }
 
 .no-books {

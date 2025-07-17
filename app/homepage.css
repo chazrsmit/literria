@@ -129,11 +129,12 @@
     transition: all 0.3s ease;
     width: 150px;
     font-family: "Inter Tight";
+        border-radius: 5px;
 }
 
 .view-more-section-btn:hover{
-    border-radius: 5px;
-    text-transform: lowercase;
+    border-radius: 0px;
+    text-transform: capitalize;
 }
 
 /* Image carousel */
@@ -141,7 +142,7 @@
     height: 550px;
     display: flex;
     justify-content: center;
-    align-items: end; 
+    align-items: center; 
     position: relative;
     perspective: 1000px;
     background-color: transparent;
@@ -220,3 +221,24 @@ background-image: radial-gradient(
     width: 200px;
 }
 
+/* title homepage */
+
+.title-homepage {
+    font-family: "Inter";
+    color: var(--light-purple);
+    font-style: italic;
+    border: 1px dotted var(--light-purple);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.15rem;
+    border-radius: 5px;
+    text-transform: lowercase;
+    font-weight: 300;
+    transition: all 0.3s ease;
+
+}
+
+.title-homepage:hover {
+    background: var(--light-purple);
+    color: var(--bg-color);
+}

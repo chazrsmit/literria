@@ -196,6 +196,9 @@ export default function Home() {
         <>
 
             {/* Carousel - Books of the moment */}
+            <div className="d-flex justify-content-center">
+                <h3 className="title-homepage sticky-top">Monthly highlights</h3>
+            </div>
             <section className="carousel-section">
                 <div className="carousel-container ">
                     <div className="carousel-wrapper">
@@ -240,7 +243,7 @@ export default function Home() {
                 <div className="section-header ">
                     <h2 className="section-title">Our Poetry selection</h2>
                     <Link href="/category/poetry">
-                        <button className="view-more-section-btn">View More Poetry</button>
+                        <button className="view-more-section-btn">view more poetry</button>
                     </Link>
                 </div>
                 <div className="book-rangee">
@@ -260,7 +263,7 @@ export default function Home() {
                 <div className="section-header ">
                     <h2 className="section-title">Our Science Fiction selection</h2>
                     <Link href="/category/science fiction">
-                        <button className="view-more-section-btn">View More Sci-Fi</button>
+                        <button className="view-more-section-btn">view more sci-fi</button>
                     </Link>
                 </div>
                 <div className="book-rangee">

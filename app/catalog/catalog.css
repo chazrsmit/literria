@@ -196,6 +196,7 @@
   background-color: var(--primary-color);
       transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: var(--bg-color);
 }
 
 
@@ -212,12 +213,14 @@
     color: var(--primary-color);
     transition: all 0.3s ease;
     width: 170px;
+    text-transform: lowercase;
+    border-radius: 5px;
     font-family: "Inter Tight";
 }
 
 .load-more-btn:hover {
-  text-transform: lowercase;
-  border-radius: 5px;
+  text-transform: capitalize;
+  border-radius: 0px;
 }
 
 /* .view-more-btn:hover {
@@ -250,7 +253,7 @@
 }
 
 .btn-add-cart:hover{
-  color: var(--accent-color) !important;
+    color: var(--bg-color) !important;
 }
 
 .btn-view-more {
@@ -269,4 +272,5 @@
 
 .btn-view-more:hover { 
   /* border: 2px outset var(--accent-color) !important; */
+  color: var(--bg-color);
 }
