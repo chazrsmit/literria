@@ -114,14 +114,46 @@ export default function Confirmation() {
     <>
       <h3 className="cart-title mb-2">Confirmation</h3>
       <div className="page-confirmation">
-        <p className="empty-car m-0 p-0">Payment Successful!</p>
+        <p className="empty-car m-0 p-0">Thank you, payment successful!</p>
+        <p className="empty-car m-0 p-0">You bought:</p>
+          <ul>
+            {groupedItems.map((item) => (
+              <li key={item.id} className="empty-car">
+                {item.title} × {item.quantity}
+                <span className="">
+                  &nbsp;({((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)} €)
+                </span>
+              </li>
+            ))}
+          </ul>
+        <p className="empty-car m-0 p-0">And paid a total of {finalOrderData.finalTotal.toFixed(2)}€.</p>
+        <p className="empty-car m-0 p-0">You will receive your books at {fullAddress} on {deliveryDate} (approximative date).</p>
+          
+          {/* Show promotion info if applicable */}
+          {/* {finalOrderData.promotion && finalOrderData.promotion.freeBooks > 0 && (
+            <div className="promotion-section mt-4">
+              <p className="discount">
+                ❭ 4+1 free discount applied: {finalOrderData.promotion.freeBooks} free book(s)
+              </p>
+              <p className="discount">
+                "{finalOrderData.promotion.cheapestBookTitle}" - {finalOrderData.promotion.discount.toFixed(2)}€
+              </p>
+            </div>
+          )} */}
 
-        <p>Thank you {fullName}!</p>
+          {/* <div className="mt-4">
+            <p><strong>Subtotal:</strong> {finalOrderData.originalTotal.toFixed(2)}€</p>
+            {finalOrderData.discount > 0 && (
+              <p className="discount"><strong>Discount:</strong> -{finalOrderData.discount.toFixed(2)}€</p>
+            )}
+            <p><strong>Total Paid:</strong> {finalOrderData.finalTotal.toFixed(2)}€</p>
+          </div>
 
-        <p><strong>Shipping to:</strong></p>
-        <p>{fullAddress}</p>
-
-        <p><strong>Estimated Delivery:</strong> {deliveryDate}</p>
+        <ul>
+          <li>{fullName}</li>
+          <li>{fullAddress}</li>
+          <li>Estimated delivery: {deliveryDate}</li>
+        </ul> */}
 
         <div className="mt-4">
           <iframe
@@ -131,40 +163,6 @@ export default function Confirmation() {
             allowFullScreen
             src={`https://www.google.com/maps?q=${encodeURIComponent(fullAddress)}&output=embed`}
           ></iframe>
-        </div>
-
-        <div className="mt-6">
-          <h3>Order Recap</h3>
-          <ul>
-            {groupedItems.map((item) => (
-              <li key={item.id} className="py-1 border-b">
-                <strong>{item.title}</strong> × {item.quantity}
-                <span className="ml-2">
-                  – {((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)} €
-                </span>
-              </li>
-            ))}
-          </ul>
-          
-          {/* Show promotion info if applicable */}
-          {finalOrderData.promotion && finalOrderData.promotion.freeBooks > 0 && (
-            <div className="promotion-section mt-4">
-              <p className="discount">
-                ❭ 4+1 free discount applied: {finalOrderData.promotion.freeBooks} free book(s)
-              </p>
-              <p className="discount">
-                "{finalOrderData.promotion.cheapestBookTitle}" - {finalOrderData.promotion.discount.toFixed(2)}€
-              </p>
-            </div>
-          )}
-
-          <div className="mt-4">
-            <p><strong>Subtotal:</strong> {finalOrderData.originalTotal.toFixed(2)}€</p>
-            {finalOrderData.discount > 0 && (
-              <p className="discount"><strong>Discount:</strong> -{finalOrderData.discount.toFixed(2)}€</p>
-            )}
-            <p><strong>Total Paid:</strong> {finalOrderData.finalTotal.toFixed(2)}€</p>
-          </div>
         </div>
       </div>
     </>
