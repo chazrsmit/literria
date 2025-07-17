@@ -69,7 +69,7 @@ export default function Cart() {
     return (
 
         <>
-        <h3 className="cart-title">Cart</h3>
+        <h3 className="cart-title mb-2">Cart</h3>
         <div className="page-cart">
             <div className="cart">
                 <div className="cart-grid cart-header">
@@ -103,10 +103,10 @@ export default function Cart() {
                                 <p className="p-0 m-0">{item.quantity}</p>
                             </div>
                             <div className="">
-                              <p className="p-0 m-0">{item.price}</p>
+                              <p className="p-0 m-0">{item.price}€</p>
                             </div>
                             <div className="">
-                              <p className="p-0 m-0">{item.price*item.quantity}</p>
+                              <p className="p-0 m-0">{item.price*item.quantity}€</p>
                             </div>
                             <div className="">
                                 <button onClick={() => dispatch(deleteBook(item.id))}>X</button>
@@ -121,17 +121,17 @@ export default function Cart() {
 
                       <div className="cart-footer">
                         <div className="cart-totals">
-                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center total1">
                                 <p className="p-0 m-0">Total quantity</p>
                                 <p className="p-0 m-0">{qtTotale}</p>
                             </div>
-                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center">
+                            <div className="d-flex justify-content-between  m-0 p-0 align-items-center total2">
                                 <p className="p-0 m-0">Total to pay</p>
-                                <p className="p-0 m-0">{total.toFixed(2)}</p>
+                                <p className="p-0 m-0">{total.toFixed(2)}€</p>
                             </div>
                         </div> 
                         <input className="input-coupon m-0 p-0" placeholder="Enter your coupon code" />
-                        <button onClick={handleCheckout}>Commander</button>
+                        <button onClick={handleCheckout} className="view-more-section-btn">order</button>
                     </div>
 
                 {/* <div>

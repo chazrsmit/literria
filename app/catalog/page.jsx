@@ -62,11 +62,11 @@ export default function Catalog() {
 
             {/* <h1>Catalog</h1> */}
             {/* <SearchBar/> */}
-            <div className="top-catalog">
+            <div className="top-catalog mb-2">
                 <div className="d-flex page-title-div">
                     <h3 className="cart-title">Full catalog</h3>        
                 </div>
-                <div className="d-flex align-items-center   ">
+                <div className="d-flex align-items-center">
                     <SearchBar />
                 </div>
             </div>

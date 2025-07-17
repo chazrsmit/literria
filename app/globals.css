@@ -9,7 +9,8 @@
  --primary-color: #CDF7F6; 
  --accent-color: #CA3C25; */
  /* --bg-color:#fefedf; */
- --bg-color:#fcf8ff;
+ /* --bg-color:#fcf8ff; */
+  --bg-color: #fbeee6;
  --primary-color: #845ec2;
  --green-color:#008f7a;
  --accent-color: #b39cd0;
@@ -27,8 +28,9 @@ body, html {
 }
 
 body {
-  background-color: var(--bg-color) !important;
-  padding-top: 10px;}
+  background: var(--bg-color) !important;
+  padding-top: 10px;
+}
 
 .site-wrap {
   padding-left: 30px;

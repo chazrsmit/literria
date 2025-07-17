@@ -7,6 +7,7 @@ import { getBooks } from '@/app/lib/getBooks'
 import SearchBar from '@/app/components/SearchBar'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
+import './cart/cart.css'
 
 export default function Home() {
     const [books, setBooks] = useState([])
@@ -205,9 +206,8 @@ export default function Home() {
         <>
 
             {/* Carousel - Books of the moment */}
-            <div className="d-flex page-title-div">
-                <h3 className="title-homepage">Monthly highlights</h3>
-            </div>
+            {/* <div className="d-flex page-title-div">
+            </div> */}
             <section className="carousel-section">
                 <div className="carousel-container ">
                     <div className="carousel-wrapper">

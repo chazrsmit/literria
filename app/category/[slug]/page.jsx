@@ -12,6 +12,7 @@ import SearchBar from '@/app/components/SearchBar'
 import { loadMore, resetPagination } from '@/store/slices/paginationSlice'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
+import '../../cart/cart.css'
 
 export default function CategoryPage() {
     const [books, setBooks] = useState([])
@@ -71,16 +72,28 @@ export default function CategoryPage() {
 
     return (
         <>
-            <div className="page-catalog">
-                <div className="category-header d-flex justify-content-between align-items-center w-100 gap-2">
+
+                {/* <div className="category-header d-flex justify-content-between align-items-center w-100 gap-2">
                     <h5 className="p-0 m-0 d-flex align-items-center">Books in category: {categoryName} ({filteredBooks.length} books found)</h5>
-                    {/* <p>{filteredBooks.length} books found</p> */}
                     <Link href="/catalog">
                         <button className="back-btn">← Back to All Books</button>
                     </Link>
                 </div>
 
-                <SearchBar />
+                <SearchBar /> */}
+
+             <div className="d-flex justify-content-between mb-2">
+                <div className="">
+                    <div>
+                        <h3 className="cart-title">{categoryName} ({filteredBooks.length} books found)</h3>
+                    </div>
+                </div>
+                <div className="d-flex align-items-center">
+                    <SearchBar />
+                </div>
+            </div>   
+
+            <div className="page-catalog">
 
                 <div className="book-rangee">
                     {displayedBooks.map(book => (

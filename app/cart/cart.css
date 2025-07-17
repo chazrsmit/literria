@@ -16,7 +16,6 @@
   text-transform: uppercase;
   color: var(--primary-color);
   font-weight: 400;
-  margin-bottom: 10px;
 }
 
 .cart {
@@ -34,7 +33,7 @@
   gap: 1rem;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px dotted #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .cart-header {
@@ -76,7 +75,9 @@
 .cart-totals p {
   display: flex;
   justify-content: space-between;
-  font-weight: 500;
+  font-weight: 400;
+  color: var(--primary-color);
+  font-family: "Inter";
 }
 
 .empty-cart {
@@ -89,4 +90,13 @@
 .input-coupon::placeholder, .input-coupon[placeholder] {
     text-transform: lowercase;
     font-size: 1rem;
+    font-style: italic;
+}
+
+.total1, .total2 {
+  border-top: 1px solid var(--accent-color);
+}
+
+.total2 {
+  border-bottom: 1px solid var(--accent-color);
 }
