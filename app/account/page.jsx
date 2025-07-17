@@ -3,6 +3,7 @@
 import { useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import '../cart/cart.css'
 
 
 export default function Account(){
@@ -68,8 +69,11 @@ const [error, setError] = useState('')
         <div>
           {session? 
           <>
-          <h2>Welcome {session.user?.name}</h2>
+            <h3 className="cart-title mb-2">Welcome {session.user?.name}!</h3>
+        {/* <div className="page-cart"></div> */}
 
+            {orders.length === 0 &&
+            <p className="m-0 p-0 empty-car">You haven't ordered anything yet.</p>}
 
           <div>
           {orders.map((order) => (
