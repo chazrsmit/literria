@@ -54,7 +54,7 @@ export default function AuthPage() {
             )
             : (
                 <>
-                <div className="d-flex flex-column  align-items-center">
+                <div className="d-flex flex-column align-items-center">
                   <div className="auth">
                 {/* Sign in */}
                     <form onSubmit={handleSubmit}>

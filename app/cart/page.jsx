@@ -69,7 +69,8 @@ export default function Cart() {
     return (
 
         <>
-        <div className="page-cart ">
+        <h3 className="cart-title">Cart</h3>
+        <div className="page-cart">
             <div className="cart">
                 <div className="cart-grid cart-header">
                     <div className=""></div>
@@ -86,7 +87,6 @@ export default function Cart() {
                         <p>Subtotal</p>
                     </div>
                     <div className="">
-
                     </div>
                 </div>
                 {/* Mapping des éléments mis dans le cart */}
@@ -97,13 +97,16 @@ export default function Cart() {
                                 <img className="img-cart" src={item.image} alt="" />
                             </div>
                             <div className="">
-                                <p>{item.title}</p>
+                                <p className="p-0 m-0">{item.title}</p>
                             </div>
                             <div className="">
-                                <p>{item.quantity}</p>
+                                <p className="p-0 m-0">{item.quantity}</p>
                             </div>
                             <div className="">
-                              <p>{item.price*item.quantity}</p>
+                              <p className="p-0 m-0">{item.price}</p>
+                            </div>
+                            <div className="">
+                              <p className="p-0 m-0">{item.price*item.quantity}</p>
                             </div>
                             <div className="">
                                 <button onClick={() => dispatch(deleteBook(item.id))}>X</button>

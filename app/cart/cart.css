@@ -3,33 +3,63 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  border-top: 2px solid var(--primary-color);
+  /* border-bottom: 2px solid var(--primary-color); */
+}
+
+.cart-title {
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  font-size: 60px;
+  font-family: "Inter Tight";
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .cart {
   width: 100%;
-  max-width: 900px;
-  border: 1px solid #ccc;
+  max-width: 800px;
+  /* border: 1px solid #ccc; */
   padding: 1rem;
+  /* border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color); */
 }
 
 .cart-grid {
   display: grid;
-  grid-template-columns: 80px 2fr 1fr 1fr 1fr auto;
+  grid-template-columns: 80px 2fr 1fr 1fr 1fr 40px;
   gap: 1rem;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px dotted #dfdfdf;
 }
 
 .cart-header {
-  font-weight: bold;
-  background-color: #f8f8ff;
+  font-family: "Inter";
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
 }
 
 .cart-product img {
   height: 80px;
   object-fit: cover;
   border-radius: 4px;
+}
+
+.cart-product p {
+  font-family: "Inter Tight";
+  color: var(--accent-color);
+}
+
+.cart-product button {
+  background: transparent;
+  border: 1px dotted var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 5px;
 }
 
 .input-coupon {

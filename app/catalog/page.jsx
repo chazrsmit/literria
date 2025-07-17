@@ -9,6 +9,7 @@ import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
 import '../homepage.css';
+import '../cart/cart.css'
 
 
 export default function Catalog() {
@@ -63,9 +64,11 @@ export default function Catalog() {
             {/* <SearchBar/> */}
             <div className="top-catalog">
                 <div className="d-flex page-title-div">
-                    <h3 className="title-homepage">Full catalog</h3>        
+                    <h3 className="cart-title">Full catalog</h3>        
                 </div>
-                <SearchBar />
+                <div className="d-flex align-items-center   ">
+                    <SearchBar />
+                </div>
             </div>
 
         <div className="page-catalog">

@@ -28,7 +28,7 @@
 
     .div-titre a {
         text-decoration: none;
-        color: var(--primary-color)
+        color: var(--primary-color);
     }
 
     .div-log {
@@ -58,7 +58,7 @@
         text-decoration: underline;
         text-underline-offset: 0.3rem;
         /* text-decoration-color:#FF595E; */
-        text-decoration-color:var(--accent-color);
+        text-decoration-color:var(--green-color);
     }
 
     /* .div-log p:hover{
@@ -67,7 +67,7 @@
 
     .wrap2 p:hover {
         text-decoration-thickness: 2px;
-        text-decoration-color:var(--accent-color);
+        text-decoration-color:var(--green-color);
     }
 
     /* .div-log p:hover span {
@@ -208,10 +208,14 @@
 
     .italic-letter {
     font-style: italic;
-    color: var(--accent-color);
+    color: var(--green-color);
     }
 
 
     .sign-in a {
         text-decoration: none;
+    }
+
+    .nav-links span {
+        color: var(--green-color);
     }

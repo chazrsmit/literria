@@ -42,7 +42,7 @@ export default function Nav() {
                         </div> */}
                         <div className="nav-links">
                             <Link href="/catalog"><p role="button">CATALOG</p></Link>
-                            <Link href="/cart"><p role="button">CART[{qtTotale}]</p></Link>
+                            <Link href="/cart"><p role="button">CART[<span>{qtTotale}</span>]</p></Link>
                             <Link href="/account"><p role="button">MY ORDERS</p></Link>
                         </div>
                     </div>

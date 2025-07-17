@@ -72,8 +72,8 @@ export default function CategoryPage() {
     return (
         <>
             <div className="page-catalog">
-                <div className="category-header d-flex justify-content-between align-items-center w-100">
-                    <h5>Books in category: {categoryName} ({filteredBooks.length} books found)</h5>
+                <div className="category-header d-flex justify-content-between align-items-center w-100 gap-2">
+                    <h5 className="p-0 m-0 d-flex align-items-center">Books in category: {categoryName} ({filteredBooks.length} books found)</h5>
                     {/* <p>{filteredBooks.length} books found</p> */}
                     <Link href="/catalog">
                         <button className="back-btn">← Back to All Books</button>
