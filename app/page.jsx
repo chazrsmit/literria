@@ -115,12 +115,17 @@ export default function Home() {
 
             <div className="div-img2">
 
+                    
+                                
                     <div className="book-image-wrapper2">
+                        <Link href={`/details/${book.id}`}>
                         <img 
                             src={book.image} 
                             alt={book.title}
                         />
+                        </Link>
                     </div>
+                    
 
             </div>
             <div className="details">
@@ -157,38 +162,42 @@ export default function Home() {
     const BookCard = ({ book }) => (
         <div className="book">
             <div className="div-img">
-                <div className="book-image-wrapper">
-                    <img 
-                        src={book.image} 
-                        alt={book.title}
-                    />
-                </div>
-            </div>
-            <h2 className="book-title mt-4">{book.title}</h2>
-            <p className="book-author">{book.author}</p>
-            <p className="book-description">{book.description}</p>
-            <div className='d-flex gap-2'>
-                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
-                    <button>{book.categoryA}</button>
-                </Link>
-                {book.categoryB && (
-                    <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
-                        <button>{book.categoryB}</button>
-                    </Link>
-                )}
-                {book.categoryC && (
-                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
-                        <button>{book.categoryC}</button>
-                    </Link>
-                )}
-            </div>
-            <div className="d-flex">
-                <p>{book.price}</p>
-                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
-            </div>
-            <Link href={`/details/${book.id}`}>
-                <button>View more</button>
-            </Link>
+                                <div className="book-image-wrapper">
+                                    <img 
+                                        src={book.image} 
+                                        alt={book.title}
+                                />
+                                </div>
+                            </div>
+                            <h2 className="book-title mt-4">{book.title}</h2>
+                            <p className="book-author">{book.author}</p>
+                            <div className='d-flex gap-2 mt-1 mb-2'>
+                                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                                    <button>{book.categoryA}</button>
+                                </Link>
+                                <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                                    <button>{book.categoryB}</button>
+                                </Link>
+                                {book.categoryC && (
+                                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                                        <button>{book.categoryC}</button>
+                                    </Link>
+                                )}
+                            </div>
+                            <p className="book-description">{book.description}</p>
+
+                            {/* Prix */}
+                            <div className="d-flex mt-2 mb-1 gap-2">
+                                <p className="card-book-price">{book.price}€</p>
+                                <button
+                                onClick={() => dispatch(addBook(book))}
+                                className='btn-add-cart'
+                                >Add to cart</button>
+                            </div>
+                            {/* Bouton vers la page détails */}
+                            <Link href={`/details/${book.id}`}>
+                                <button className="btn-view-more">view more</button>
+                            </Link>
         </div>
     )
 
@@ -196,8 +205,8 @@ export default function Home() {
         <>
 
             {/* Carousel - Books of the moment */}
-            <div className="d-flex justify-content-center">
-                <h3 className="title-homepage sticky-top">Monthly highlights</h3>
+            <div className="d-flex page-title-div">
+                <h3 className="title-homepage">Monthly highlights</h3>
             </div>
             <section className="carousel-section">
                 <div className="carousel-container ">

@@ -238,7 +238,17 @@ background-image: radial-gradient(
 
 }
 
-.title-homepage:hover {
+.page-title-div {
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .page-title-div {
+    justify-content: start;
+}
+}
+
+/* .title-homepage:hover {
     background: var(--light-purple);
     color: var(--bg-color);
-}
+} */

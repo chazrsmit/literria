@@ -39,8 +39,8 @@ export default function Details({params}) {
         <div className='page-details d-flex justify-content-center my-5 '>
             <div className="book-details d-flex my-5  justify-content-between">
                 {/* Image */}
-                <div className="div-img2">
-                    <div className="book-image-wrapper2">
+                <div className="div-img3">
+                    <div className="book-image-wrapper3">
                         <img 
                             src={book.image} 
                             alt={book.title}

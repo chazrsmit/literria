@@ -9,16 +9,18 @@ input {
 }
 
 input::placeholder {
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-family: "Inter";
     font-size: 30px;
     text-transform: uppercase;
+    text-align: right;
 }
 
 input[placeholder] {
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-size: 30px;
     text-transform: uppercase;
+    text-align: right;
 }
 
 .search-input-wrapper {
@@ -28,13 +30,13 @@ input[placeholder] {
 
 .search-icon {
     position: absolute;
-    left: 130px;
-    top: 50%;
+    left: 45px;
+    top: 45%;
     transform: translateY(-50%);
     width: 27px;
     height: 27px;
     pointer-events: none;
-    fill: var(--primary-color);
+    fill: var(--accent-color);
     /* transition: opacity 0.2s ease; */
 }
 

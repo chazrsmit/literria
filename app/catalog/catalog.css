@@ -1,3 +1,5 @@
+
+
 .page-catalog {
   display: flex;
   flex-direction: column;
@@ -262,15 +264,29 @@
   letter-spacing: 1px;
   transition: all 0.3s ease;
   color: var(--accent-color);
-    color: var(--accent-color);
   border-radius: 5px;
   font-family: "Inter";
   text-transform: uppercase;
   font-size: 11px;
   transition: all 0.2s ease-in;
+  border: 1px dotted var(--accent-color) !important;
 }
 
 .btn-view-more:hover { 
   /* border: 2px outset var(--accent-color) !important; */
-  color: var(--bg-color);
+  color: var(--bg-color) !important;
+  background: var(--accent-color) !important;
+}
+
+/*  titre et searc bar */
+
+@media (min-width:1024px) {
+  .top-catalog {
+  display: flex;
+  justify-content: space-between;
+}
+}
+.top-catalog {
+  display: flex;
+  justify-content: space-between;
 }

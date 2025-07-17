@@ -8,6 +8,7 @@ import SearchBar from '@/app/components/SearchBar'
 import { loadMore, resetPagination } from '../../store/slices/paginationSlice'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
+import '../homepage.css';
 
 
 export default function Catalog() {
@@ -60,8 +61,14 @@ export default function Catalog() {
 
             {/* <h1>Catalog</h1> */}
             {/* <SearchBar/> */}
+            <div className="top-catalog">
+                <div className="d-flex page-title-div">
+                    <h3 className="title-homepage">Full catalog</h3>        
+                </div>
+                <SearchBar />
+            </div>
+
         <div className="page-catalog">
-            <SearchBar />
                 <div className="book-rangee">
                     {displayedBooks.map(book => (
                         <div key={book.id} className="book">
