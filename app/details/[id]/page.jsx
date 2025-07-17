@@ -5,6 +5,8 @@ import { use, useEffect, useState } from 'react'
 import './details.css'
 import { addBook } from '@/store/slices/panierSlice'
 import { useDispatch } from 'react-redux'
+import '../../catalog/catalog.css'
+import Link from 'next/link'
 
 
 export default function Details({params}) {
@@ -50,15 +52,32 @@ export default function Details({params}) {
                 {/* Infos */}
                 <div className="book-infos">
                     <div className='d-flex gap-2'>
-                        <button>{book.categoryA}</button>
-                        <button>{book.categoryB}</button>
-                        <button>{book.categoryC}</button>
+                                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                                    <button>{book.categoryA}</button>
+                                </Link>
+                                <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                                    <button>{book.categoryB}</button>
+                                </Link>
+                                {book.categoryC && (
+                                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                                        <button>{book.categoryC}</button>
+                                    </Link>
+                                )}
                     </div>
                     <h2 className="title my-2">{book.title}</h2>
                     <h3 className="author">{book.author}</h3>
                     <p className="description">{book.description}</p>
-                    <p>{book.price}</p>
-                    <button onClick={()=>dispatch(addBook(book))}>Add to cart</button>
+                    <div className="d-flex gap-2">
+                        {book.discountedPrice ?
+                        <div className="d-flex gap-2">
+                            <p className="card-book-price promotion">{book.discountedPrice}</p>
+                            <p className="card-book-price discounted">-10%</p>
+                        </div>
+                        :
+                        <p className="card-book-price">{book.price}</p>}
+                        <button onClick={()=>dispatch(addBook(book))}
+                        className="btn-add-cart">Add to cart</button>
+                    </div>
                 </div>
             </div>
         </div>
