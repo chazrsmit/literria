@@ -106,7 +106,7 @@ export default function Cart() {
         <>
             <h3 className="cart-title mb-2">Cart</h3>
             <div className="page-cart">
-                <div className="cart">
+                <div className="cart border">
                     <div className="cart-grid cart-header">
                         <div></div>
                         <div><p>Product</p></div>

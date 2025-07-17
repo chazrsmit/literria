@@ -4,6 +4,11 @@ import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { setDeliveryDetails } from '@/store/slices/deliverySlice'
+import '../cart/cart.css'
+import './orders.css'
+import '../homepage.css'
+import Link from 'next/link'
+
 
 export default function Orders() {
     const [fullName, setFullName] = useState('')
@@ -37,8 +42,9 @@ export default function Orders() {
 
     return (
         <>
-            <h2>Order</h2>
-            <form onSubmit={handleSubmit}>
+    <h3 className="cart-title mb-2">Delivery details</h3>
+        <div className="page-cart">
+            <form onSubmit={handleSubmit} className="delivery-form border">
                 <input
                     type="text"
                     value={fullName}
@@ -69,8 +75,12 @@ export default function Orders() {
                     onChange={(e) => setCountry(e.target.value)}
                     placeholder="Country"
                 />
-                <button type="submit">Proceed to payment</button>
+                <div className="d-flex gap-2">
+                    <Link href="/cart"><button className="view-more-section-btn mt-2">back to cart</button></Link>
+                    <button type="submit" className="view-more-section-btn wider mt-2">proceed to payment</button>
+                </div>
             </form>
+        </div>
         </>
     )
 }

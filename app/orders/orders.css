@@ -1,0 +1,12 @@
+.delivery-form {
+    width: 100%;
+    max-width: 800px;
+    /* border: 1px solid #ccc; */
+    padding: 1rem;
+    /* border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color); */
+}
+
+.view-more-section-btn.wider {
+    width: auto;
+}
