@@ -11,10 +11,11 @@
  /* --bg-color:#fefedf; */
  --bg-color:#fcf8ff;
  --primary-color: #845ec2;
- /* --accent-color:#00c9a7; */
+ --green-color:#008f7a;
  --accent-color: #b0a8b9;
  --dark-grey: #4b4453;
  --light-grey: #b0a8b9;
+ --light-purple: #b39cd0;
 }
 
 body, html {

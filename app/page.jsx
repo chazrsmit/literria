@@ -95,12 +95,32 @@ export default function Home() {
                     </div>
 
             </div>
-            <h2 className="book-title mt-4">{book.title}</h2>
+                        <h2 className="book-title mt-4">{book.title}</h2>
             <p className="book-author">{book.author}</p>
             <p className="book-description">{book.description}</p>
+            <div className='d-flex gap-2'>
+                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                    <button>{book.categoryA}</button>
+                </Link>
+                {book.categoryB && (
+                    <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                        <button>{book.categoryB}</button>
+                    </Link>
+                )}
+                {book.categoryC && (
+                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                        <button>{book.categoryC}</button>
+                    </Link>
+                )}
+            </div>
+            <div className="d-flex">
+                <p>{book.price}</p>
+                <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
+            </div>
             <Link href={`/details/${book.id}`}>
-                <button className="btn-view-more">View more</button>
+                <button>View more</button>
             </Link>
+
         </div>
     )
 
