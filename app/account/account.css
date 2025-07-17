@@ -1,0 +1,10 @@
+.recap {
+    color: var(--primary-color);
+    font-size: 40px;
+    font-family: "Inter Tight";
+}
+
+.order-nb {
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}

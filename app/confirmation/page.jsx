@@ -118,7 +118,7 @@ export default function Confirmation() {
         <p className="empty-car m-0 p-0">You bought:</p>
           <ul>
             {groupedItems.map((item) => (
-              <li key={item.id} className="empty-car">
+              <li key={item.id} className="recap-order">
                 {item.title} × {item.quantity}
                 <span className="">
                   &nbsp;({((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)} €)

@@ -1,3 +1,9 @@
 .page-confirmation {
     border-top: 2px solid var(--primary-color);
 }
+
+.recap-order {
+    color: var(--primary-color);
+    font-family: "Inter Tight";
+    font-size: 30px;
+}

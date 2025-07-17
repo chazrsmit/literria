@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import '../cart/cart.css'
+import './account.css'
 
 
 export default function Account(){
@@ -42,7 +43,7 @@ const [error, setError] = useState('')
   }
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('fr-FR', {
+    return new Date(dateString).toLocaleDateString('en-EN', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -76,24 +77,14 @@ const [error, setError] = useState('')
             <p className="m-0 p-0 empty-car">You haven't ordered anything yet.</p>}
 
           <div>
+          <p className="m-0 p-0 empty-car">Here's a recap of your past orders.</p>
           {orders.map((order) => (
             <div key={order.id} >
               <div>
                 <div>
-                  <h2 >Commande #{order.orderNumber}</h2>
-                  <p >Passée le {formatDate(order.createdAt)}</p>
+                  <h2 className="m-0 p-0 recap order-nb mt-3">Order #{order.orderNumber}</h2>
+                  <p className="m-0 p-0 recap">{formatDate(order.createdAt)}</p>
                 </div>
-                <div>
-                  <p>{formatPrice(order.totalAmount)}</p>
-                  <p>{order.totalQuantity} livre(s)</p>
-                  <span>
-                    {order.status}
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <h3>Articles commandés :</h3>
                 <div>
                   {order.items.map((item) => (
                     <div key={item.id}>
@@ -104,6 +95,28 @@ const [error, setError] = useState('')
                             alt={item.title} 
                           />
                         )} */}
+                        <div className="d-flex justify-content-between">
+                          <p className="m-0 p-0 recap"><i>{item.title}</i>, by {item.author} ({item.quantity})</p>
+                          <p className="m-0 p-0 recap">{formatPrice(item.price * item.quantity)}</p>
+                        </div>
+                      </div>
+                      {/* <p>{formatPrice(item.price * item.quantity)}</p> */}
+                    </div>
+                  ))}
+                </div>
+                <div className="d-flex justify-content-between">
+                  <p className="m-0 p-0 recap">{order.totalQuantity} book(s) for a total of</p>
+                  <p className="m-0 p-0 recap">{formatPrice(order.totalAmount)}</p>
+                </div>
+              </div>
+
+              <div>
+                {/* <h3>Articles commandés :</h3> */}
+                {/* <div>
+                  {order.items.map((item) => (
+                    <div key={item.id}>
+                      <div>
+
                         <div>
                           <p>{item.title}</p>
                           <p>par {item.author}</p>
@@ -113,7 +126,7 @@ const [error, setError] = useState('')
                       <p>{formatPrice(item.price * item.quantity)}</p>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
