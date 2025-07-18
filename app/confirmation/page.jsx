@@ -23,11 +23,12 @@ export default function Confirmation() {
   const [localStorageOrderData, setLocalStorageOrderData] = useState(null)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return; // Avoid SSR crash
+
     console.log('=== CONFIRMATION DEBUG ===')
     console.log('Redux orderData:', orderData)
     console.log('Redux cartItems:', cartItems)
 
-    // Try to get order data from localStorage as backup
     let localStorageData = null
     try {
       const stored = localStorage.getItem('orderData')
@@ -66,6 +67,7 @@ export default function Confirmation() {
     setDeliveryDate(estimated.toDateString())
 
     dispatch(clearCart())
+    dispatch(clearOrderData())
   }, [orderData, dispatch])
 
   if (!finalOrderData) {
@@ -75,19 +77,19 @@ export default function Confirmation() {
         <div className="page-confirmation">
           <p className="empty-car m-0 p-0">Debug Information</p>
 
-          <div style={{ background: '#f0f0f0', padding: '10px', margin: '10px 0' }}>
+          <div className="debug-info">
             <h4>Debug Info:</h4>
             <p><strong>Redux orderData:</strong> {orderData ? 'Found' : 'Not found'}</p>
             <p><strong>Redux cartItems:</strong> {cartItems ? cartItems.length : 'undefined'}</p>
             <p><strong>localStorage orderData:</strong> {localStorageOrderData ? 'Found' : 'Not found'}</p>
 
             <h5>Full State:</h5>
-            <pre style={{ fontSize: '12px', overflow: 'auto', maxHeight: '200px' }}>
+            <pre>
               {JSON.stringify({ orderData, cartItems }, null, 2)}
             </pre>
 
             <h5>localStorage Content:</h5>
-            <pre style={{ fontSize: '12px', overflow: 'auto', maxHeight: '200px' }}>
+            <pre>
               {localStorageOrderData || 'No data in localStorage'}
             </pre>
           </div>
@@ -110,7 +112,7 @@ export default function Confirmation() {
     <>
       <h3 className="cart-title mb-2">Confirmation</h3>
       <div className="page-confirmation">
-        <p className="empty-car m-0 p-0">Thank you, payment successful!</p>
+        <p className="empty-car m-0 p-0">Thank you, {fullName}! Payment successful!</p>
         <p className="empty-car m-0 p-0">You bought:</p>
         <ul>
           {groupedItems.map((item) => (
@@ -122,8 +124,8 @@ export default function Confirmation() {
             </li>
           ))}
         </ul>
-        <p className="empty-car m-0 p-0">And paid a total of {finalOrderData.finalTotal.toFixed(2)}€.</p>
-        <p className="empty-car m-0 p-0">You will receive your books at {fullAddress} on {deliveryDate} (approximative date).</p>
+        <p className="empty-car m-0 p-0">You paid a total of {finalOrderData.finalTotal.toFixed(2)} €.</p>
+        <p className="empty-car m-0 p-0">Your books will arrive at <strong>{fullAddress}</strong> by <strong>{deliveryDate}</strong>.</p>
 
         <div className="mt-4">
           <iframe
