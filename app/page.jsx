@@ -8,6 +8,7 @@ import SearchBar from '@/app/components/SearchBar'
 import Link from 'next/link'
 import { addBook } from '@/store/slices/panierSlice'
 import './cart/cart.css'
+import './catalog/catalog.css'
 
 export default function Home() {
     const [books, setBooks] = useState([])
@@ -112,50 +113,60 @@ export default function Home() {
 
     // Component to render a book card in the carousel
     const BookCardCarousel = ({ book }) => (
-        <div className="book2">
+                <div className="book2">
 
-            <div className="div-img2">
+                    <div className="div-img2">
 
-                    
-                                
-                    <div className="book-image-wrapper2">
-                        <Link href={`/details/${book.id}`}>
-                        <img 
-                            src={book.image} 
-                            alt={book.title}
-                        />
-                        </Link>
+                            
+                                        
+                            <div className="book-image-wrapper2">
+                                <Link href={`/details/${book.id}`}>
+                                <img 
+                                    src={book.image} 
+                                    alt={book.title}
+                                />
+                                </Link>
+                            </div>
+                            
+
                     </div>
-                    
+                    <h2 className="book-title mt-4">{book.title}</h2>
+                            <p className="book-author">{book.author}</p>
+                            <div className='d-flex gap-2 mt-1 mb-2'>
+                                <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
+                                    <button>{book.categoryA}</button>
+                                </Link>
+                                <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
+                                    <button>{book.categoryB}</button>
+                                </Link>
+                                {book.categoryC && (
+                                    <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
+                                        <button>{book.categoryC}</button>
+                                    </Link>
+                                )}
+                            </div>
+                            <p className="book-description">{book.description}</p>
 
-            </div>
-            <div className="details">
-                <h2 className="book-title mt-4">{book.title}</h2>
-                <p className="book-author">{book.author}</p>
-                <p className="book-description">{book.description}</p>
-                <div className='d-flex gap-2'>
-                    <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
-                        <button>{book.categoryA}</button>
-                    </Link>
-                    {book.categoryB && (
-                        <Link href={`/category/${encodeURIComponent(book.categoryB)}`}>
-                            <button>{book.categoryB}</button>
-                        </Link>
-                    )}
-                    {book.categoryC && (
-                        <Link href={`/category/${encodeURIComponent(book.categoryC)}`}>
-                            <button>{book.categoryC}</button>
-                        </Link>
-                    )}
-                </div>
-                <div className="d-flex">
-                    <p>{book.price}</p>
-                    <button onClick={() => dispatch(addBook(book))}>Add to cart</button>
-                </div>
-                <Link href={`/details/${book.id}`}>
-                    <button>View more</button>
-                </Link>
-            </div>
+                            {/* Prix */}
+                            <div className="d-flex mt-2 mb-1 gap-2">
+                                {book.discountedPrice ?
+                                <>
+                                <p className="card-book-price">{book.price}€</p>
+                                <p className="card-book-price discounted">-10%</p>
+                                <p className="card-book-price promotion">{book.discountedPrice}€</p>
+                                </>
+                                :
+                                <p className="card-book-price">{book.price}€</p>
+                                }
+                                <button
+                                onClick={() => dispatch(addBook(book))}
+                                className='btn-add-cart'
+                                >Add to cart</button>
+                            </div>
+                            {/* Bouton vers la page détails */}
+                            <Link href={`/details/${book.id}`}>
+                                <button className="btn-view-more">view more</button>
+                            </Link>
         </div>
     )
 

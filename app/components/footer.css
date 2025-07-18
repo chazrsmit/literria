@@ -4,31 +4,93 @@ footer {
 }
 
 footer .column {
-    flex: 1;
+    margin-bottom: 8px;
 }
 
-footer p, footer a {
+footer p,
+footer a {
     font-size: 0.8rem;
     font-weight: 200;
     font-family: "Inter Tight";
 }
 
+/* Mobile-first: Single column stack */
 .footer-wrap {
-padding-left: 30px;
-padding-right: 30px;
-padding-bottom: 0px;
-}
-
-.footer-socials {
     display: flex;
-    justify-content: right;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    gap: 8px;
 }
 
+/* Alignments for mobile */
 .footer-links {
+    display: flex;
+    gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
     color: var(--primary-color);
     text-decoration: none;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-socials a svg {
+    fill: var(--primary-color);
+}
+
+/* Small tablets: 2 columns, with third cell spanning full width */
+@media (min-width: 480px) {
+    .footer-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+        justify-items: stretch;
+    }
+    
+    .footer-wrap .column:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .footer-wrap .column:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .footer-wrap .column:nth-child(3) {
+        grid-column: 1 / -1; /* Span full width */
+        grid-row: 2;
+    }
+    
+    .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* Larger screens: 3 columns in a row */
+@media (min-width: 769px) {
+    .footer-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .footer-wrap .column {
+        flex: 1 1 200px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-socials {
+        justify-content: flex-end;
+    }
 }

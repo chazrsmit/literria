@@ -72,11 +72,15 @@ export default function Nav() {
                     </div>
                 </div>
                 {/* Sur mobiles */}
-                <div className="wrap2 gap-5 justify-content-between w-100">
-                    <HoverWord word="CATALOG" />
-                    <HoverWord word="CART[0]" />
-                    <HoverWord word="MY ORDERS" />
-                    <HoverWord word="LOG IN" />
+                <div className="wrap2 justify-content-between w-100">
+                            <Link href="/catalog"><p>CATALOG</p></Link>
+                            <Link href="/cart"><p>CART[<span>{hasMounted ? qtTotale : 0}</span>]</p></Link>
+                            <Link href="/account"><p>MY ORDERS</p></Link>
+                                                { session ?
+                            <p role="button" onClick={()=>signOut()}>LOG OUT</p>
+                            :
+                            <Link href="/auth"><p role="button">LOG IN</p></Link>
+                            }
                     {/* <p>CATALOG</p>
                     <p>CART[0]</p>
                     <p>MY ACCOUNT</p>

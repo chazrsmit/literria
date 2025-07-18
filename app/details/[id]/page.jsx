@@ -51,7 +51,7 @@ export default function Details({params}) {
                 </div>
                 {/* Infos */}
                 <div className="book-infos">
-                    <div className='d-flex gap-2'>
+                    <div className='d-flex gap-2 '>
                                 <Link href={`/category/${encodeURIComponent(book.categoryA)}`}>
                                     <button>{book.categoryA}</button>
                                 </Link>
@@ -66,8 +66,10 @@ export default function Details({params}) {
                     </div>
                     <h2 className="title my-2">{book.title}</h2>
                     <h3 className="author">{book.author}</h3>
-                    <p className="description">{book.description}</p>
-                    <div className="d-flex gap-2">
+                    <div className="div-description">
+                        <p className="description">{book.description}</p>
+                    </div>
+                    <div className="d-flex gap-2 flex-wrap ">
                         {book.discountedPrice ?
                         <div className="d-flex gap-2">
                             <p className="card-book-price promotion">{book.discountedPrice}</p>
