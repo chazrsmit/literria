@@ -5,8 +5,12 @@ import Link from 'next/link'
 import { useState } from 'react'
 import './auth.css'
 import '../components/searchbar.css'
+import '../cart/cart.css'
 
 export default function AuthPage() {
+
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const { data: session } = useSession()
 
@@ -48,9 +52,16 @@ export default function AuthPage() {
         <>
         <div className="page-auth">
             {session ? (
-            <>
-                <p>Connecté en tant que {session.user?.name}</p>
-                <button onClick={()=>signOut()}>Log out</button>
+            <>  
+            <div className="d-flex flex-column align-items-center">
+
+            
+                <p className="empty-car">Connected as {session.user?.name}</p>
+                <div>
+                    <button onClick={()=>signOut()} className="sign-in-btn">Log out</button>
+                </div>
+                {/* <button onClick={()=>signOut()} className="sign-in-btn">Log out</button> */}
+              </div>
             </>
             )
             : (

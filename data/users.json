@@ -12,5 +12,26 @@
     "password": "$2b$12$g.cyLLRQJ7XxmnHM45n/uef3nKCXhd2a6sCE/tYxucJyY0RCG7Pg.",
     "name": "M",
     "createdAt": "2025-07-18T08:20:16.189Z"
+  },
+  {
+    "id": "1752830124357",
+    "email": "test@testemail.com",
+    "password": "$2b$12$sezS5vdjbg5jbVm0JtJwwOlPTW9UsIR/Zj1zOuaSmSv7OeOxxp3vu",
+    "name": "Test",
+    "createdAt": "2025-07-18T09:15:24.357Z"
+  },
+  {
+    "id": "1752830381502",
+    "email": "test2@testemail.com",
+    "password": "$2b$12$FsfPKDkrENAP/b/UIgo8WOER4n9LwcFDE8tydPiMlJ0jevtt6fh96",
+    "name": "test",
+    "createdAt": "2025-07-18T09:19:41.502Z"
+  },
+  {
+    "id": "1752830896996",
+    "email": "test3@testemail.com",
+    "password": "$2b$12$aSSzQssGs1PL0hxpgz4IOuXmDEf0Eh9a5D8nx0fkBScBGDacK8NG6",
+    "name": "test",
+    "createdAt": "2025-07-18T09:28:16.996Z"
   }
 ]
