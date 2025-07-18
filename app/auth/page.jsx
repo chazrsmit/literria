@@ -20,7 +20,7 @@ export default function AuthPage() {
       [e.target.name]: e.target.value
     })}
 
-      const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setError('')
         setLoading(true)
@@ -33,12 +33,12 @@ export default function AuthPage() {
       })
 
       if (result?.error) {
-        setError('Email ou mot de passe incorrect')
+        setError('Incorrect email or password')
       } else {
         router.push('/')
       }
     } catch (error) {
-      setError('Erreur de connexion')
+      setError('Error')
     } finally {
       setLoading(false)
     }
