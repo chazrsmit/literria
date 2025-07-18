@@ -7,16 +7,19 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Provider } from 'react-redux'
 import { store } from '@/store'
 import { SessionProvider } from 'next-auth/react'
-import AppInitializer from './components/AppInitializer' 
+import HydrateCart from '@/components/HydrateCart'
+import CartWatcher from '@/components/CartWatcher'
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <SessionProvider>
           <Provider store={store}>
-            <AppInitializer /> 
-            <div className="d-flex flex-column big-wrap ">
-              <div className="site-wrap ">
+            <HydrateCart />
+            <CartWatcher />
+            <div className="d-flex flex-column big-wrap">
+              <div className="site-wrap">
                 <Nav />
                 <main>{children}</main>
               </div>
