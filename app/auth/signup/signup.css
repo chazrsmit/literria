@@ -1,0 +1,22 @@
+.signup input {
+    outline: none;
+    background: transparent;
+    height: 34px;
+    width: 100%;
+    border: none;
+}
+
+.signup input::placeholder {
+    color: var(--accent-color);
+    font-family: "Inter";
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.signup input[placeholder] {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: left;
+}

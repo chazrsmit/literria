@@ -5,5 +5,12 @@
     "password": "$2b$12$av2nOXNXnS3gPZ08eVZs.ORHCHc/FaBIJGyOLPXWn6kgWFMioSL/u",
     "name": "cha",
     "createdAt": "2025-07-14T12:46:34.343Z"
+  },
+  {
+    "id": "1752826816189",
+    "email": "fakeemail@email.com",
+    "password": "$2b$12$g.cyLLRQJ7XxmnHM45n/uef3nKCXhd2a6sCE/tYxucJyY0RCG7Pg.",
+    "name": "M",
+    "createdAt": "2025-07-18T08:20:16.189Z"
   }
 ]

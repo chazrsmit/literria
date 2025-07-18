@@ -4,6 +4,7 @@ import { getSession, signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useState } from 'react'
 import './auth.css'
+import '../components/searchbar.css'
 
 export default function AuthPage() {
 

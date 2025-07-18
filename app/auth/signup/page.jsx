@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import '../auth.css'
+import '../../components/searchbar'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -29,7 +31,7 @@ export default function SignUp() {
 
     // Validation
     if (formData.password !== formData.confirmPassword) {
-      setError('Les mots de passe ne correspondent pas')
+      setError('Passwords not matching.')
       setLoading(false)
       return
     }
@@ -50,13 +52,13 @@ export default function SignUp() {
       const data = await res.json()
 
       if (res.ok) {
-        alert('Compte créé avec succès ! Vous pouvez maintenant vous connecter.')
+        alert('Success with account creation! You can now log in.')
         router.push('/auth')
       } else {
-        setError(data.error || 'Erreur lors de la création du compte')
+        setError(data.error || 'Error')
       }
     } catch (error) {
-      setError('Erreur de connexion')
+      setError('Error')
     } finally {
       setLoading(false)
     }
@@ -65,11 +67,14 @@ export default function SignUp() {
   return (
     <div>
       <div>
-        <div>
+        {/* <div>
           <h2>
             Create an account
           </h2>
-        </div>
+        </div> */}
+
+<div className="page-auth">
+        <div className="auth signup">
         <form onSubmit={handleSubmit}>
           {error && (
             <div>
@@ -78,9 +83,9 @@ export default function SignUp() {
           )}
           
           <div>
-            <label htmlFor="name">
+            {/* <label htmlFor="name">
               Username
-            </label>
+            </label> */}
             <input
               id="name"
               name="name"
@@ -88,13 +93,14 @@ export default function SignUp() {
               required
               value={formData.name}
               onChange={handleChange}
+              placeholder='Name'
             />
           </div>
 
           <div>
-            <label htmlFor="email">
+            {/* <label htmlFor="email">
               Email
-            </label>
+            </label> */}
             <input
               id="email"
               name="email"
@@ -102,13 +108,14 @@ export default function SignUp() {
               required
               value={formData.email}
               onChange={handleChange}
+              placeholder='Email'
             />
           </div>
 
           <div>
-            <label htmlFor="password">
+            {/* <label htmlFor="password">
               Password
-            </label>
+            </label> */}
             <input
               id="password"
               name="password"
@@ -116,13 +123,14 @@ export default function SignUp() {
               required
               value={formData.password}
               onChange={handleChange}
+              placeholder="password"
             />
           </div>
 
           <div>
-            <label htmlFor="confirmPassword">
+            {/* <label htmlFor="confirmPassword">
               Confirm password
-            </label>
+            </label> */}
             <input
               id="confirmPassword"
               name="confirmPassword"
@@ -130,12 +138,14 @@ export default function SignUp() {
               required
               value={formData.confirmPassword}
               onChange={handleChange}
+              placeholder="confirm password"
             />
           </div>
 
           <div>
             <button
               type="submit"
+              className="sign-in-btn my-2"
             >
                 Submit
             </button>
@@ -150,6 +160,8 @@ export default function SignUp() {
             </p>
           </div>
         </form>
+        </div>
+        </div>
       </div>
     </div>
   )
